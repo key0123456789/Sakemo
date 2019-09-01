@@ -1,0 +1,22 @@
+.header
+  .header__left
+    %h1 Sakemo<span>!</span>
+  .header__right 
+    .header__right__user-menu    
+      %ul
+        %li 新規登録
+        %li ログイン
+.main
+  .main-wrapper
+    .main-wrapper__text もう一度呑みたいお酒
+    .main-wrapper__form 
+      .main-wrapper__form__content 銘柄から探す
+      .main-wrapper__form__input
+
+        -# = form_tag ( search_brands_path, method: :get ) do
+        -#   = f.text_field_tag :content, class: "main-wrapper__form__input-box", placeholder: 'キーワード［例：八海山］'
+        -#   = f.submit '検索', class: 'submit-btn'
+
+  .container
+    .container__area-search 地域で探す
+%footer

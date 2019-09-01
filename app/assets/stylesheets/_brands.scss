@@ -1,0 +1,87 @@
+div, p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+body {
+  background-color: $color-white;
+  color: $color-black;
+  box-sizing: border-box;
+}
+
+.header {
+  height: 32px;
+  width: 100%;
+  background-color: $color-black;
+  color: $color-white;
+  padding: 10px 0;
+  &__left {
+    width:200px;
+    font-size: 24px;
+    line-height: 32px;
+    float: left;
+    padding: 0 20px;
+    h1 {
+      letter-spacing: 0.15em;
+      span {
+        color: $color-blue;
+      }
+    }
+  }
+  &__right {
+    padding: 0 20px;
+    line-height: 32px;
+    text-align: right;
+    &__user-menu li {
+      font-family: 'Osaka','MS UI Gothic','ヒラギノ角ゴシック','Hiragino Sans',sans-serif;
+      font-size: 14px;
+      display: inline-block;
+      border-left: 1px $color-white solid;
+      padding: 0 10px;
+    }
+  }
+}
+
+.main {
+  width: 100%;
+  height: 500px;
+  .main-wrapper {
+    background-image: url('top01-min.jpg');
+    background-size: cover;
+    opacity: 0.8;
+    height: 100%;
+    padding: 0 100px;
+    position: relative;
+    &__text {
+      writing-mode: vertical-rl;
+      letter-spacing: 0.15em;
+      text-shadow: 2px 2px 2px #ffffff;
+      font-weight: bold;
+      font-size: 20px;
+      color: #000000;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+    &__form {
+      width: 860px;
+      height: 80px;
+      background-color: $color-white;
+      border: 1px solid gray;
+      position: absolute;
+      bottom: -55px;
+      padding: 20px;
+      &__content {
+        line-height: 80px;
+        font-size: 18px;
+        width: 120px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+  .container {
+    padding: 80px 10px 10px 30px;
+  }
+}

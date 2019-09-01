@@ -1,0 +1,22 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password:
+  host: localhost
+
+
+development:
+  <<: *default
+  database: sakemo_development #　DBの名前。「sample」の部分をアプリの名前に変更すると分かりやい
+
+test:
+  <<: *default
+  database: sakemo_test #　DBの名前。「sample」の部分をアプリの名前に変更すると分かりやい
+
+production:
+  <<: *default
+  database: sakemo_production
+  username: sakemo_app
+  password: <%= ENV['SAMPLE_DATABASE_PASSWORD'] %>
