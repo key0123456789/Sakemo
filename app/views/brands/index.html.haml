@@ -9,14 +9,13 @@
 .main
   .main-wrapper
     .main-wrapper__text もう一度呑みたいお酒
-    .main-wrapper__form 
-      .main-wrapper__form__content 銘柄から探す
-      .main-wrapper__form__input
-
-        -# = form_tag ( search_brands_path, method: :get ) do
-        -#   = f.text_field_tag :content, class: "main-wrapper__form__input-box", placeholder: 'キーワード［例：八海山］'
-        -#   = f.submit '検索', class: 'submit-btn'
-
+    .main-wrapper__search 
+      .main-wrapper__search__content 
+        %h2 銘柄で探す
+      .main-wrapper__search__input-box
+        = form_tag(root_path, method: :get) do
+          = text_field_tag :search, params[:search], class: "input-form", placeholder: "[例：八海山]"
+          = submit_tag '検索', name: nil, class: "search-btn"
   .container
-    .container__area-search 地域で探す
+    %h2.container__area-search 地域で探す
 %footer
