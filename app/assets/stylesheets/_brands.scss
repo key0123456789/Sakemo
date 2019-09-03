@@ -72,7 +72,7 @@ a {
 
 .search {
   position: relative;
-  padding-bottom: 48px;
+  padding-bottom: 72px;
   .words-search {
     display: inline-block;
     width: 660px;
@@ -91,6 +91,9 @@ a {
       text-overflow: ellipsis;
       white-space: nowrap;
       float: left;
+      h2 {
+      font-family: $font-gothic;
+      }
     }
     &__input-box {
       border-radius: 3px;
@@ -129,7 +132,8 @@ a {
     width:  90%;
     margin: 0 auto;
     &__title {
-      font-size: 22px;
+      font-size: 18px;
+      font-family: $font-gothic;
     }
     &__left {
       float: left;
@@ -140,11 +144,11 @@ a {
       width: 50%;
     }
     .pref-name {
-      color: $color-blue;
       width: 100%;
-      font-size: 1.1em;
+      font-size: 1em;
       padding: 18px 0 12px;
       font-weight: bold;
+      color: $color-red;
     }
     .pref-name_lists {
       font-size: 0.9em;
@@ -152,8 +156,7 @@ a {
         display: inline-block;
         margin-right: 6px;
         &:hover {
-          text-decoration: underline;
-          text-decoration-color: $color-blue;
+          color: $color-blue;
         }
       }
     }
@@ -175,9 +178,3 @@ footer {
     bottom: 0;
   }
 }
-
-// .clearfix:after {
-//   clear: both;
-//   content: '';
-//   display: block;
-// }

@@ -10,13 +10,13 @@
 .main
   .main-wrapper
   .main-wrapper__text もう一度呑みたいお酒
-.search.clearfix
+.search
   .words-search
     .words-search__content 
       %h2 銘柄で探す
     .words-search__input-box
       = form_tag(root_path, method: :get) do
-        = text_field_tag :search, params[:search], class: "input-form", placeholder: "[例：八海山]"
+        = text_field_tag :search, params[:search], class: "input-form", placeholder: "［例：八海山］"
         = submit_tag '検索', name: nil, class: "search-btn"
   .area-search
     %h2.area-search__title 地域で探す
