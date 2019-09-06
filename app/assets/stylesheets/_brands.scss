@@ -19,6 +19,9 @@ a {
   background-color: $color-black;
   color: $color-white;
   padding: 10px 0;
+  a:visited {
+    color: $color-white;
+  }
   &__left {
     font-size: 24px;
     line-height: 32px;

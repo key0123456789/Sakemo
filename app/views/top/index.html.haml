@@ -1,14 +1,4 @@
-.header
-  .header__left
-    = link_to root_path do 
-      %h1 Sakemo<span>!</span>
-  .header__right 
-    .header__right__user-menu    
-      %ul
-        = link_to new_user_registration_path do
-          %li 新規登録
-        = link_to new_user_session_path do
-          %li ログイン
+= render "header"
 .main
   .main-wrapper
   .main-wrapper__text もう一度呑みたいお酒
