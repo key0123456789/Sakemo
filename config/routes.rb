@@ -8,5 +8,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'brands#index'
+  root 'top#index'
 end
