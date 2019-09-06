@@ -9,6 +9,10 @@ body {
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 .header {
   height: 32px;
   width: 100%;
@@ -16,13 +20,13 @@ body {
   color: $color-white;
   padding: 10px 0;
   &__left {
-    width:200px;
     font-size: 24px;
     line-height: 32px;
     float: left;
     padding: 0 20px;
     h1 {
       letter-spacing: 0.15em;
+      color: $color-white;
       span {
         color: $color-blue;
       }
@@ -33,7 +37,7 @@ body {
     line-height: 32px;
     text-align: right;
     &__user-menu li {
-      font-family: 'Osaka','MS UI Gothic','ヒラギノ角ゴシック','Hiragino Sans',sans-serif;
+      font-family: $font-gothic;
       font-size: 14px;
       display: inline-block;
       border-left: 1px $color-white solid;
@@ -45,43 +49,132 @@ body {
 .main {
   width: 100%;
   height: 500px;
+  position: relative;
   .main-wrapper {
     background-image: url('top01-min.jpg');
     background-size: cover;
-    opacity: 0.8;
     height: 100%;
-    padding: 0 100px;
-    position: relative;
+    opacity: 0.7;
     &__text {
       writing-mode: vertical-rl;
       letter-spacing: 0.15em;
       text-shadow: 2px 2px 2px #ffffff;
       font-weight: bold;
       font-size: 20px;
-      color: #000000;
+      color: #212121;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%,-50%);
     }
-    &__form {
-      width: 860px;
-      height: 80px;
-      background-color: $color-white;
-      border: 1px solid gray;
-      position: absolute;
-      bottom: -55px;
-      padding: 20px;
-      &__content {
-        line-height: 80px;
+  }
+}
+
+.search {
+  position: relative;
+  padding-bottom: 72px;
+  .words-search {
+    display: inline-block;
+    width: 660px;
+    height: 80px;
+    background-color: $color-white;
+    border: 1px solid gray;
+    position: absolute;
+    top: -55px;
+    padding: 20px;
+    line-height: 80px;
+    left: 50%;
+    transform: translate(-50%,-0%);
+    &__content {
+      font-size: 18px;
+      width: 108px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      float: left;
+      h2 {
+      font-family: $font-gothic;
+      }
+    }
+    &__input-box {
+      border-radius: 3px;
+      width: calc(100%-108px);
+      display: flex;
+      ::placeholder {
+        color: #999999;
+        font-size: 14px;
+        padding: 0 8px;
+      }
+      .input-form {
+        border: solid 1px gray;
+        border-radius: 3px;
+        height: 42px;
+        width: 440px;
+        padding: 0 8px;
+      }
+      .search-btn {
         font-size: 18px;
-        width: 120px;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        font-family: $font-gothic;
+        color: $color-white;
+        border: none;
+        border-radius: 3px;
+        background-color: $color-red;
+        padding: 8px 20px;
+        margin-left: 10px;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
   }
-  .container {
-    padding: 80px 10px 10px 30px;
+
+  .area-search {
+    padding: 88px 10px 10px 30px;
+    width:  90%;
+    margin: 0 auto;
+    &__title {
+      font-size: 18px;
+      font-family: $font-gothic;
+    }
+    &__left {
+      float: left;
+      width: 50%;
+    }
+    &__right {
+      float: left;
+      width: 50%;
+    }
+    .pref-name {
+      width: 100%;
+      font-size: 1em;
+      padding: 18px 0 12px;
+      font-weight: bold;
+      color: $color-red;
+    }
+    .pref-name_lists {
+      font-size: 0.9em;
+      li {
+        display: inline-block;
+        margin-right: 6px;
+        &:hover {
+          color: $color-blue;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  height: 100px;
+  width: 100%;
+  background-color: $color-black;
+  bottom: 0;
+  position: relative;
+  .copy {
+    width: 100%;
+    color: $color-white;
+    font-size: 12px;
+    text-align: right;
+    position: absolute;
+    bottom: 0;
   }
 }

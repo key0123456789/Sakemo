@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: :show
-  resources :brands, only: :show do
+  resources :brands, only: [:index, :show] do
     collection do
       get 'search'
     end
