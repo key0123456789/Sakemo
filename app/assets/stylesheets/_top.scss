@@ -133,26 +133,29 @@ a {
     }
     // 検索候補
     &__helper {
-      display: none;
+      // display: none;
       position: absolute;
       z-index: 100;
       left: 128px;
       top: 82px;
+      ul {
+        overflow: scroll;
+        height: 200px;
+        border-radius: 3px;
+      }
       &__list {
-        display: block;
         background-color: $color-blue;
         opacity: 0.8;
-        height: 32px;
-        width: 458px;
+        height: 40px;
+        width: calc(458px - 20px);
         border-bottom: solid $color-black 1px;
         color: black;
-        border-radius: 3px;
-        li {
-          font-size: 18px;
-          line-height: 32px;
-          display: block;
-          padding: 0 10px; 
-        }
+        font-size: 16px;
+        line-height: 40px;
+      }
+      li {
+        display: block;
+        padding: 0 10px;
       }
     }
   }
