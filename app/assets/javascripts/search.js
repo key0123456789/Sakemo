@@ -1,0 +1,55 @@
+$(function(){
+
+    var search_list = $("#words-search-result");
+
+  function appendBrands(brand){
+    var html = `<li class="words-search__helper__list suggest-word" data-brand-name="${ brand.name }">${ brand.name }</li>`
+
+    search_list.append(html);
+  }
+
+  function appendErrMsgToHTML(msg){
+    var html = `<li class="words-search__helper__list">${ msg }</li>`
+
+    search_list.append(html);
+  }
+
+  $('#search').on('keyup', function(){
+  
+    var input = $('#search').val();
+
+    $.ajax({
+      type: 'GET',
+      url: '/top/search',
+      data: { keyword: input },
+      dataType: 'json'
+    })
+
+    .done(function(brands) {
+      search_list.empty();
+
+      if (brands.length !== 0) {
+        brands.forEach(function(brand){
+          appendBrands(brand);
+        });
+      }
+      else if (input.length === 0){
+        search_list.empty();
+      }
+      else {
+        appendErrMsgToHTML("一致する日本酒はありません");
+      }
+    })
+    .fail(function() {
+      alert('日本酒の検索に失敗しました');
+    });
+  });
+
+  // クリックしたli要素のvalをフォームに入れる
+  $(document).on('click',".suggest-word", function(){
+    var brandName = $(this).text();
+    $('#search').val(brandName)
+    search_list.empty();
+  });
+
+});
