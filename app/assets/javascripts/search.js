@@ -48,6 +48,7 @@ $(function(){
   // クリックしたli要素のvalをフォームに入れる
   $(document).on('click',".suggest-word", function(){
     var brandName = $(this).text();
+    
     $('#search').val(brandName)
     search_list.empty();
   });
