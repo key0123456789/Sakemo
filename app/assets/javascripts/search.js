@@ -1,9 +1,20 @@
 $(function(){
 
-    var search_list = $("#words-search-result");
+  var search_list = $("#words-search-result");
 
   function appendBrands(brand){
-    var html = `<li class="words-search__helper__list suggest-word" data-brand-name="${ brand.name }">${ brand.name }</li>`
+    var html = `<li class="words-search__helper__list suggest-word">
+                  <a class="suggest-word__content" href="/brands/${ brand.id }/" title="${ brand.name }">
+                    <div class="suggest-word__content__right">
+                      <div class="suggest-word__content__name">
+                        ${ brand.name }
+                      </div>
+                    </div>
+                    <div class="suggest-word__content__right">
+                      <img src="/l_e_others_501.png" width="150" height="150">
+                    </div>
+                  </a>
+                </li>`
 
     search_list.append(html);
   }
@@ -33,9 +44,9 @@ $(function(){
           appendBrands(brand);
         });
       }
-      else if (input.length === 0){
-        search_list.empty();
-      }
+      // else if (input.length === 0){
+      //   search_list.empty();
+      // }
       else {
         appendErrMsgToHTML("一致する日本酒はありません");
       }
@@ -45,12 +56,12 @@ $(function(){
     });
   });
 
-  // クリックしたli要素のvalをフォームに入れる
-  $(document).on('click',".suggest-word", function(){
-    var brandName = $(this).text();
+  // // クリックしたli要素のvalをフォームに入れる
+  // $(document).on('click',".suggest-word", function(){
+  //   var brandName = $(this).text();
     
-    $('#search').val(brandName)
-    search_list.empty();
-  });
+  //   $('#search').val(brandName)
+  //   search_list.empty();
+  // });
 
 });

@@ -3,11 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, only: :show
   
-  resources :brands, only: [:index, :show] do
-    collection do
-      get 'search'
-    end
-  end
+  resources :brands, only: [:index, :show]
 
   resources :top, only: [:index] do
     collection do
@@ -15,5 +11,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'top#index'
+  root 'top#search'
 end
