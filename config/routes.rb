@@ -2,11 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: :show
-  resources :brands, only: [:index, :show] do
+  
+  resources :brands, only: [:index, :show]
+
+  resources :top, only: [:index] do
     collection do
       get 'search'
     end
   end
 
-  root 'brands#index'
+  root 'top#search'
 end
