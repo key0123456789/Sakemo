@@ -1,3 +1,4 @@
+-# 削除可
 = render "header"
 .main
   .main-wrapper
@@ -12,7 +13,7 @@
         %button.btn-search.search-btn{title: "検索", type: "submit"}
           検索
       %form.js-search-submit{"accept-charset": "utf-8", action: "/", method: "get"}
-      
+
   .words-search-result#words-search-result__title
     %ul#words-search-result
       - @brands.each do |brand|  

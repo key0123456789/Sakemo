@@ -21,10 +21,6 @@
           %a.suggest-word__content{href: "/brands/#{ brand.id }/", title: "#{ brand.name }"}
             .suggest-word__content__right
               .suggest-word__content__name #{brand.name}
-            -# - if !brand.name_kana.present?
-            -#   .suggest-word__content__name-kana #{brand.name_kana}
-            -# - else
-            -#   .suggest-word__content__name-kana &ndash;
             .suggest-word__content__right
               %img{height: "150", src: "/l_e_others_501.png", width: "150"}/
 

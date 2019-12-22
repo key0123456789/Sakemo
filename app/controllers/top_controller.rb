@@ -13,10 +13,5 @@ class TopController < ApplicationController
       format.json
     end
   end
-
-  # private
-
-  # def search_params
-  #   params.require(:q).permit(:name_cont)
-  # end
+  
 end
