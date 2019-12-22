@@ -4,14 +4,16 @@ $(function(){
 
   function appendBrands(brand){
     var html = `<li class="words-search__helper__list suggest-word">
-                  <a class="suggest-word__content" href="/brands/${ brand.id }/" title="${ brand.name }">
-                    <div class="suggest-word__content__right">
-                      <div class="suggest-word__content__name">
-                        ${ brand.name }
+                  <a href="/brands/${ brand.id }/">
+                    <div class="suggest-word__content">
+                      <div class="suggest-word__content__right">
+                        <div class="suggest-word__content__name">
+                          ${ brand.name }
+                        </div>
                       </div>
-                    </div>
-                    <div class="suggest-word__content__right">
-                      <img src="/l_e_others_501.png" width="150" height="150">
+                      <div class="suggest-word__content__right">
+                        <img src="/l_e_others_501.png" width="150" height="150">
+                      </div>
                     </div>
                   </a>
                 </li>`
