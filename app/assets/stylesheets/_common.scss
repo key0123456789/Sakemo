@@ -35,7 +35,8 @@ a {
     padding: 0 20px;
     &:hover{
       cursor: pointer;
-      opacity: 0.7;
+      opacity: 0.6;
+      transition-duration: 1000ms;
     }
     h1 {
       letter-spacing: 0.15em;
@@ -59,7 +60,8 @@ a {
       font-family: $font-gothic;
       &:hover{
         cursor: pointer;
-        opacity: 0.7;
+        opacity: 0.6;
+        transition-duration: 1000ms;
       }
     }
   }
