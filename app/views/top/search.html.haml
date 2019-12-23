@@ -1,97 +1,98 @@
 = render "shared/header"
-.main
-  .main-wrapper
-  .main-wrapper__text もう一度呑みたいお酒
-.search
-  .words-search
-    .words-search__content 
-      %h2 銘柄で探す
+.top-search
+  .main
+    .main-wrapper
+    .main-wrapper__text もう一度呑みたいお酒
+  .search
+    .words-search
+      .words-search__content 
+        %h2 銘柄で探す
 
-    .words-search__input-box
-      = form_tag(search_top_index_path, method: :get) do
-        %input.search__query.input-form{name: "keyword", type: "text", value:"", placeholder: "［例：八海山］", id: "search"}/
-        %button.btn-search.search-btn{title: "検索", type: "submit"}
-          検索
-      %form.js-search-submit{"accept-charset": "utf-8", action: "/", method: "get"}
+      .words-search__input-box
+        = form_tag(search_top_index_path, method: :get) do
+          %input.search__query.input-form{name: "keyword", type: "text", value:"", placeholder: "［例：八海山］", id: "search"}/
+          %button.btn-search.search-btn{title: "検索", type: "submit"}
+            検索
+        %form.js-search-submit{"accept-charset": "utf-8", action: "/", method: "get"}
 
-  .words-search-result#words-search-result__title
-    %ul#words-search-result
-      - @brands.each do |brand|  
-        %li.words-search__helper__list.suggest-word
-          = link_to brand_path(brand) do
-            .suggest-word__content
-              .suggest-word__content__right
-                .suggest-word__content__name #{brand.name}
-              .suggest-word__content__right
-                %img{height: "150", src: "/l_e_others_501.png", width: "150"}/
+    .words-search-result#words-search-result__title
+      %ul#words-search-result
+        - @brands.each do |brand|  
+          %li.words-search__helper__list.suggest-word
+            = link_to brand_path(brand) do
+              .suggest-word__content
+                .suggest-word__content__right
+                  .suggest-word__content__name #{brand.name}
+                .suggest-word__content__right
+                  %img{height: "150", src: "/l_e_others_501.png", width: "150"}/
 
-  .area-search
-    %h2.area-search__title 地域で探す
-    .area-search__left
-      .pref-name 北海道・東北
-      .pref-name_lists
-        %ul
-          %li 北海道
-          %li 青森
-          %li 秋田
-          %li 山形
-          %li 岩手
-          %li 宮城
-          %li 福島
-      .pref-name 中部
-      .pref-name_lists
-        %ul
-          %li 愛知
-          %li 岐阜
-          %li 静岡
-          %li 三重
-          %li 新潟
-          %li 山梨
-          %li 長野
-          %li 石川
-          %li 富山
-          %li 福井
-      .pref-name 中国・四国
-      .pref-name_lists
-        %ul
-          %li 岡山
-          %li 広島
-          %li 鳥取
-          %li 島根
-          %li 山口
-          %li 香川
-          %li 徳島
-          %li 愛媛
-          %li 高知
-    .container__area-search__right
-      .pref-name 関東
-      .pref-name_lists
-        %ul
-          %li 東京
-          %li 神奈川
-          %li 埼玉
-          %li 千葉
-          %li 栃木
-          %li 茨城
-          %li 群馬
-      .pref-name 関西
-      .pref-name_lists
-        %ul
-          %li 大阪
-          %li 兵庫
-          %li 京都
-          %li 滋賀
-          %li 奈良
-          %li 和歌山
-      .pref-name 九州・沖縄
-      .pref-name_lists
-        %ul
-          %li 福岡
-          %li 佐賀
-          %li 長崎
-          %li 熊本
-          %li 大分
-          %li 宮崎
-          %li 鹿児島
-          %li 沖縄
+    .area-search
+      %h2.area-search__title 地域で探す
+      .area-search__left
+        .pref-name 北海道・東北
+        .pref-name_lists
+          %ul
+            %li 北海道
+            %li 青森
+            %li 秋田
+            %li 山形
+            %li 岩手
+            %li 宮城
+            %li 福島
+        .pref-name 中部
+        .pref-name_lists
+          %ul
+            %li 愛知
+            %li 岐阜
+            %li 静岡
+            %li 三重
+            %li 新潟
+            %li 山梨
+            %li 長野
+            %li 石川
+            %li 富山
+            %li 福井
+        .pref-name 中国・四国
+        .pref-name_lists
+          %ul
+            %li 岡山
+            %li 広島
+            %li 鳥取
+            %li 島根
+            %li 山口
+            %li 香川
+            %li 徳島
+            %li 愛媛
+            %li 高知
+      .container__area-search__right
+        .pref-name 関東
+        .pref-name_lists
+          %ul
+            %li 東京
+            %li 神奈川
+            %li 埼玉
+            %li 千葉
+            %li 栃木
+            %li 茨城
+            %li 群馬
+        .pref-name 関西
+        .pref-name_lists
+          %ul
+            %li 大阪
+            %li 兵庫
+            %li 京都
+            %li 滋賀
+            %li 奈良
+            %li 和歌山
+        .pref-name 九州・沖縄
+        .pref-name_lists
+          %ul
+            %li 福岡
+            %li 佐賀
+            %li 長崎
+            %li 熊本
+            %li 大分
+            %li 宮崎
+            %li 鹿児島
+            %li 沖縄
 = render 'shared/footer'

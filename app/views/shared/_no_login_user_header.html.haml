@@ -1,7 +1,7 @@
 .header__right 
   .header__right__user-menu    
     %ul
-      = link_to new_user_registration_path do
-        %li 新規登録
-      = link_to new_user_session_path do
-        %li ログイン
+      %li
+        = link_to "新規登録", new_user_registration_path
+      %li
+        = link_to "ログイン", new_user_session_path
