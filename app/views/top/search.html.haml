@@ -17,14 +17,15 @@
 
     .words-search-result#words-search-result__title
       %ul#words-search-result
-        - @brands.each do |brand|  
-          %li.words-search__helper__list.suggest-word
-            = link_to brand_path(brand) do
-              .suggest-word__content
-                .suggest-word__content__right
-                  .suggest-word__content__name #{brand.name}
-                .suggest-word__content__right
-                  %img{height: "150", src: "/l_e_others_501.png", width: "150"}/
+        - if @brands.present?
+          - @brands.each do |brand|  
+            %li.words-search__helper__list.suggest-word
+              = link_to brand_path(brand) do
+                .suggest-word__content
+                  .suggest-word__content__right
+                    .suggest-word__content__name #{brand.name}
+                  .suggest-word__content__right
+                    %img{height: "150", src: "/l_e_others_501.png", width: "150"}/
 
     .area-search
       %h2.area-search__title 地域で探す
