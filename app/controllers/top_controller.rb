@@ -1,8 +1,4 @@
 class TopController < ApplicationController
-
-  def index
-    @brands = Brand.order('name_kana ASC').limit(20)
-  end
   
   def search
     keyword = "%#{params[:keyword]}%"
