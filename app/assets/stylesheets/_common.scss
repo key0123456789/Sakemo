@@ -1,0 +1,89 @@
+// ページをまたいで関係するCSSを中心に記載
+div, p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+body {
+  background-color: $color-white;
+  color: $color-black;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+// header
+.header {
+  height: 32px;
+  width: 100%;
+  background-color: $color-black;
+  color: $color-white;
+  opacity: 0.9;
+  padding: 10px 0;
+  position: fixed;
+  z-index: 100;
+  font-family: $font-gothic;
+  a:visited {
+    color: $color-white;
+  }
+  &__left {
+    font-size: 24px;
+    line-height: 32px;
+    float: left;
+    padding: 0 20px;
+    &:hover{
+      cursor: pointer;
+      opacity: 0.6;
+      transition-duration: 1000ms;
+    }
+    h1 {
+      letter-spacing: 0.15em;
+      color: $color-white;
+      span {
+        color: $color-blue;
+      }
+    }
+  }
+  &__right {
+    padding: 0 20px;
+    line-height: 32px;
+    text-align: right;
+    &__user-menu li {
+      font-size: 14px;
+      display: inline-block;
+      border-left: 1px $color-white solid;
+      padding: 0 10px;
+    }
+    a {
+      font-family: $font-gothic;
+      &:hover{
+        cursor: pointer;
+        opacity: 0.6;
+        transition-duration: 1000ms;
+      }
+    }
+  }
+}
+
+// footer
+footer {
+  height: 100px;
+  width: 100%;
+  background-color: $color-black;
+  opacity: 0.9;
+  bottom: 0;
+  position: relative;
+  font-family: $font-gothic;
+  .copy {
+    width: 100%;
+    color: #aaa;
+    font-size: 12px;
+    text-align: right;
+    position: absolute;
+    padding: 12px; 
+    bottom: 0px;
+    right: 12px;
+  }
+}

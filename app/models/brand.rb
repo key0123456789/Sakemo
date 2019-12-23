@@ -1,4 +1,6 @@
 class Brand < ApplicationRecord
+  has_many :brewages
+
   def self.search(search)
     if search
       Brand.where('name LIKE ?', "%#{search}%")

@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   resources :users, only: :show
   
-  resources :brands, only: [:index, :show]
+  resources :brands, only: [:index, :show] do
+    resources :brewages, only: [:show, :new, :create]
+  end
 
   resources :top, only: [:index] do
     collection do

@@ -1,2 +1,34 @@
-#brand-show
-  %a #{@brand.name}
+= render "shared/header"
+.brands-show
+  .brands-show__content
+    .brands-show__content__left
+      .brands-show__content__left__name #{@brand.name}
+      .brands-show__content__left__prefecture 地域
+
+    .brands-show__content__right
+      .brands-show__content__right__image
+        %img{ src: "/l_e_others_501.png"}
+      .brands-show__content__right__like Like
+      .brands-show__content__right__bookmark Bookmark
+
+    .brands-show__content__bottom
+      .brands-show__brewages 種類 / 特定名称酒
+      .brands-show__brewages-lists
+        %ul
+          - @brand.brewages.each do |brewage|
+            .brands-show__brewages-list
+              %li
+                %a
+                  #{@brand.name}
+                = link_to brand_brewage_path(brewage) do
+                  #{brewage.name}
+                %a
+                  %span 最終更新日： #{brewage.updated_at}
+    
+      .brands-show__brewages__reg-button
+        - if current_user
+          = link_to new_brand_brewage_path(@brand) do
+            種類を追加する
+      
+
+= render 'shared/footer'

@@ -3,6 +3,6 @@
     = link_to root_path do 
       %h1 Sakemo<span>!</span>
   - if user_signed_in?
-    = render 'login_user_header'
+    = render 'shared/login_user_header'
   - else
-    = render 'no_login_user_header'
+    = render 'shared/no_login_user_header'
