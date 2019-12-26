@@ -1,4 +1,6 @@
 = render "shared/header"
 .brewages-new
-  brewages/new
-= render "form"
+  .brewages-new__title
+    #{@brand.name}の種類 / 特定名称酒を追加する
+    .brewages-new__form
+      = render "form"
