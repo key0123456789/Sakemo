@@ -1,1 +1,10 @@
-.form フォーム
+.brewages-form
+  = form_for [@brand, @brewage] do |f|
+    .brewages-form__image
+      = f.label :name, "特定名称"
+      = f.text_field :name, placeholder: "例）純米吟醸　しぼりたて"
+    .brewages-form__name
+      = f.label :image, "画像"
+      = f.file_field :image
+    .brewages-form__submit
+      = f.submit '登録する', class: "submit-btn"
