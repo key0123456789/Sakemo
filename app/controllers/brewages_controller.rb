@@ -3,6 +3,7 @@ class BrewagesController < ApplicationController
   def show
     @brand = Brand.find(params[:id])
     @brewage = @brand.brewages.find(params[:brand_id])
+    @user = User.find(@brewage.user_id)
   end
 
   def new
@@ -20,6 +21,6 @@ class BrewagesController < ApplicationController
   private
 
   def brewage_params
-    params.require(:brewage).permit(:id, :name, :image).merge(brand_id: params[:brand_id])
+    params.require(:brewage).permit(:id, :name, :image).merge(brand_id: params[:brand_id], user_id: current_user.id)
   end
 end
