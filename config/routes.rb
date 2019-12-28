@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get     'login',   to: 'users/sessions#new'
     post    'login',   to: 'users/sessions#create'
+    delete  'logout',   to: 'users/sessions#destroy'
     get     'signup',  to: 'users/registrations#new'
   end
 
