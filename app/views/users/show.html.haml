@@ -1,6 +1,9 @@
 = render "shared/header"
-プロフィール
--# コメント数
--# Like
+.users-show
+  #{@user.nickname} さんのマイページ
+  -# コメント数
+  -# Like
+.users-show__logout
+  = link_to "ログアウト", destroy_user_session_path, method: :delete
 = render 'shared/footer'
 
