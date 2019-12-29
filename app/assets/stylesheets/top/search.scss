@@ -89,6 +89,12 @@
     padding: 88px 10px 30px 10px;
     width: 80%;
     margin: 0 auto;
+    #words-search-result {
+    max-height: 80vh;
+    overflow: scroll;
+    margin-top: 10px;
+    background-color: #eee;
+    }
     &__title {
       font-size: 18px;
       font-family: $font-gothic;
@@ -96,7 +102,7 @@
   }
 
   .area-search {
-    padding: 88px 10px 30px 10px;
+    padding: 36px 10px 30px 10px;
     width: 80%;
     margin: 0 auto;
     &__title {
