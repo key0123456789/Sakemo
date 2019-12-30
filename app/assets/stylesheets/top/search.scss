@@ -27,6 +27,7 @@
   .search {
     position: relative;
     padding-bottom: 72px;
+    border-top: gray 1px solid;
     .words-search {
       display: inline-block;
       width: 660px;
@@ -90,14 +91,58 @@
     width: 80%;
     margin: 0 auto;
     #words-search-result {
-    max-height: 80vh;
+    max-height: 50vh;
     overflow: scroll;
     margin-top: 10px;
     background-color: #eee;
+    padding: 16px 20px 16px;
+    border-top: 6px $color-red solid;
+    border-bottom: 6px $color-red solid;
+    position: relative;
+      // &:after {
+      //   content: "検索結果";
+      //   font-family: $font-gothic;
+      //   font-size: 16px;
+      //   position: absolute;
+      //   top: 0;
+      //   left: 22px;
+      //   padding: 10px 0;
+      // }
     }
     &__title {
       font-size: 18px;
       font-family: $font-gothic;
+    }
+    .suggest-word {
+      padding: 12px 0px;
+      margin: 12px 0;
+      border-bottom: 1px solid $color-red;
+      position: relative;
+      width: 100%;
+      min-height: 142px;
+      min-width: 400px;
+      &:last-child {
+        border-bottom: none;
+      }
+      &__content {
+        width: 48%;
+        &__name {
+          color: #434343;
+          font-weight: bold;
+          &:visited, :link {
+            color: #434343;
+          }
+          &:hover {
+            color: $color-blue;
+          }
+        }
+        &__right {
+          position: absolute;
+          display: block;
+          top: 0;
+          right: 0;
+        }
+      }
     }
   }
 

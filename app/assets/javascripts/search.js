@@ -6,7 +6,7 @@ $(document).on('turbolinks:load', function(){
     var html = `<li class="words-search__helper__list suggest-word">
                   <a href="/brands/${ brand.id }/">
                     <div class="suggest-word__content">
-                      <div class="suggest-word__content__right">
+                      <div class="suggest-word__content__left">
                         <div class="suggest-word__content__name">
                           ${ brand.name }
                         </div>
