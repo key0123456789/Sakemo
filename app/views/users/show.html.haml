@@ -1,6 +1,9 @@
 = render "shared/header"
 .users-show
   #{@user.nickname} さんのマイページ
+  .user-show__brands
+    = link_to "#" do
+      .fas.fa-bookmark 保存した銘柄: #{@user_clips}
   -# コメント数
   -# Like
 .users-show__logout

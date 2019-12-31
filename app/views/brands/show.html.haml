@@ -25,10 +25,17 @@
                 %a
                   %span 最終更新日： #{brewage.updated_at}
     
-      .brands-show__brewages__reg-button
-        - if current_user
+      - if current_user
+        .brands-show__brewages__reg-button
           = link_to new_brand_brewage_path(@brand) do
             種類を追加する
-      
+        .brands-show__brewages__clip
+          - if !Clip.exists?(user_id: @current_user , brand_id: @brand_id)
+            = link_to add_brand_path(@brand.id), method: :post do
+              %i.far.fa-bookmark
+              
+          - else
+            = link_to clip_path(@brand.id), method: :delete do
+              %i.fas.fa-bookmark
 
 = render 'shared/footer'

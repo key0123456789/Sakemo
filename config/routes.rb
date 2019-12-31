@@ -13,9 +13,16 @@ Rails.application.routes.draw do
 
   resources :users, only: :show
   
+  
   resources :brands, only: [:index, :show] do
+    member do
+      post "add", to: "clips#create"
+    end
     resources :brewages, only: [:show, :new, :create]
   end
+  
+  resources :clips, only: [:destroy]
+
 
   resources :top, only: [:index] do
     collection do
