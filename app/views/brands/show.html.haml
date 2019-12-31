@@ -33,6 +33,7 @@
           - if !Clip.exists?(user_id: @current_user , brand_id: @brand_id)
             = link_to add_brand_path(@brand.id), method: :post do
               %i.far.fa-bookmark
+              
           - else
             = link_to clip_path(@brand.id), method: :delete do
               %i.fas.fa-bookmark

@@ -3,7 +3,6 @@ class ClipsController < ApplicationController
   def create
     @user_id = current_user.id
     @brand_id = Brand.find(params[:id]).id
-    # @clip = Clip.create(create_params)
     if Clip.create(user_id: @user_id, brand_id: @brand_id)
       redirect_back(fallback_location: root_path)
     end
