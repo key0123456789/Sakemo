@@ -25,10 +25,14 @@
                 %a
                   %span 最終更新日： #{brewage.updated_at}
     
-      .brands-show__brewages__reg-button
-        - if current_user
+      - if current_user
+        .brands-show__brewages__reg-button
           = link_to new_brand_brewage_path(@brand) do
             種類を追加する
-      
+        .brands-show__brewages__clip
+          - if !Clip.exists?(user_id: @current_user , brand_id: @brand_id)
+            = link_to "この銘柄をクリップ", add_brand_path(@brand.id), method: :post
+          - else
+            = link_to "クリップを外す", clip_path(@brand.id), method: :delete
 
 = render 'shared/footer'
