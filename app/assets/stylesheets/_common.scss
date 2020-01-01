@@ -67,6 +67,35 @@ a {
   }
 }
 
+.breadcrumbs {
+  a, span {
+    font-family: $font-gothic;
+    font-size: 14px;
+    letter-spacing: 1px;
+    &:visited, :link {
+      color: #212121;
+    }
+    &:hover {
+      color: $color-blue;
+      transition-duration: 500ms;
+    }
+  }
+  i {
+    padding: 0 8px 0;
+  }
+  width: 100%;
+  height: 28px;
+  line-height: 28px;
+  padding: 2px 20px;
+  background-color: #eee;
+  border-bottom: 1px solid $color-black;
+  opacity: 0.9;
+}
+
+.container {
+  padding-top: 52px;
+}
+
 // footer
 footer {
   height: 100px;

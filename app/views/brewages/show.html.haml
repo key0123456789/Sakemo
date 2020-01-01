@@ -1,10 +1,13 @@
 = render "shared/header"
-.brewages-show
-  #{@brand.name}
-  #{@brewage.name}
-  = image_tag ("#{@brewage.image}")
-  #{@brewage.updated_at.to_s}
-  登録者：#{@user.nickname}
+.container
+  - breadcrumb :brewage_show, @brand
+  = render partial: 'shared/breadcrumbs'
+  .brewages-show
+    #{@brand.name}
+    #{@brewage.name}
+    = image_tag ("#{@brewage.image}")
+    #{@brewage.updated_at.to_s}
+    登録者：#{@user.nickname}
 
 
   -# .brands-show__content__right__price 参考価格
