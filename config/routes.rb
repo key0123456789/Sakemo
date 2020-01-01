@@ -12,8 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: :show
-  
-  
+
   resources :brands, only: [:index, :show] do
     member do
       post "add", to: "clips#create"
@@ -22,7 +21,6 @@ Rails.application.routes.draw do
   end
   
   resources :clips, only: [:destroy]
-
 
   resources :top, only: [:index] do
     collection do
