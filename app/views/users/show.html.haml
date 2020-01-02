@@ -9,6 +9,8 @@
         .fas.fa-bookmark 保存した銘柄: #{@user_clips}
     -# コメント数
     -# Like
+  .users-show__edit
+    = link_to "アカウント設定", edit_user_registration_path
   .users-show__logout
     = link_to "ログアウト", logout_path, method: :delete
   = render 'shared/footer'
