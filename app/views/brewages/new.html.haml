@@ -1,7 +1,7 @@
 = render "shared/header"
+- breadcrumb :brewages_new, @brand
+= render partial: 'shared/breadcrumbs'
 .container
-  - breadcrumb :brewage_new, @brand
-  = render partial: 'shared/breadcrumbs'
   .brewages-new
     .brewages-new__title
       #{@brand.name}の種類 / 特定名称酒を追加する

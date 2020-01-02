@@ -1,7 +1,7 @@
 = render "shared/header"
+- breadcrumb :brewages_show, @brand
+= render partial: 'shared/breadcrumbs'
 .container
-  - breadcrumb :brewage_show, @brand
-  = render partial: 'shared/breadcrumbs'
   .brewages-show
     #{@brand.name}
     #{@brewage.name}

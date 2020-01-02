@@ -1,15 +1,17 @@
 = render "shared/header"
+- breadcrumb :mypage, @user
+= render partial: 'shared/breadcrumbs'
 .container
-  - breadcrumb :mypage, @user
-  = render partial: 'shared/breadcrumbs'
-  .users-show
-    #{@user.nickname} さんのマイページ
+  .users-show.single-column
+    %h2 #{@user.nickname} さんのマイページ
     .user-show__brands
       = link_to "#" do
         .fas.fa-bookmark 保存した銘柄: #{@user_clips}
     -# コメント数
     -# Like
-  .users-show__logout
-    = link_to "ログアウト", logout_path, method: :delete
-  = render 'shared/footer'
+    .users-show__edit
+      = link_to "アカウント設定", edit_user_registration_path
+    .users-show__logout
+      = link_to "ログアウト", logout_path, method: :delete
+= render 'shared/footer'
 
