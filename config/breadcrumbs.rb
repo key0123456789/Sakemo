@@ -14,12 +14,12 @@ crumb :brand do |brand|
 end
 
 # brewage
-crumb :brewage_new do |brewage|
+crumb :brewages_new do |brewage|
   link "銘柄の登録", new_brand_brewage_path
   # parent :brand
 end
 
-crumb :brewage_show do |brewage|
+crumb :brewages_show do |brewage|
   link "#{brewage.name}", "#"
   # parent :brand
 end
@@ -33,6 +33,16 @@ crumb :login do
   link "ログイン", login_path
 end
 
+crumb :passwords_edit do
+  link "パスワードをお忘れの方", edit_user_password_path
+end
+
 crumb :signup do
   link "新規登録", signup_path
 end
+
+crumb :users_edit do
+  link "アカウント設定", edit_user_registration_path
+  parent :mypage
+end
+
