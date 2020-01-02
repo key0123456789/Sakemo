@@ -2,28 +2,24 @@
 - breadcrumb :signup
 = render partial: 'shared/breadcrumbs'
 .container
-  %h2 新規登録
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-    = render "devise/shared/error_messages", resource: resource
-    .field
-      = f.label :nickname, "アカウント名"
-      %br/
-      = f.text_field :nickname, autofocus: true, autocomplete: "nickname"
-    .field
-      = f.label :email, "メールアドレス"
-      %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email"
-    .field
-      = f.label :password, "パスワード"
-      - if @minimum_password_length
-        %em
-          （#{@minimum_password_length}文字以上）
-      %br/
-      = f.password_field :password, autocomplete: "new-password"
-    .field
-      = f.label :password_confirmation, "パスワード *確認用"
-      %br/
-      = f.password_field :password_confirmation, autocomplete: "new-password"
-    .actions
-      = f.submit "新規登録"
-  = render "devise/shared/links"
+  .registrations-new.single-column
+    %h2 新規登録
+  .single-column__form
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .field
+        = f.label :nickname, "アカウント名", class: "form-title"
+        = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class:"form-text"
+      .field
+        = f.label :email, "メールアドレス", class: "form-title"
+        = f.email_field :email, autofocus: true, autocomplete: "email", class:"form-text"
+      .field
+        = f.label :password, "パスワード（#{@minimum_password_length}文字以上）", class: "form-title"
+        = f.password_field :password, autocomplete: "new-password", class:"form-text"
+      .field
+        = f.label :password_confirmation, "パスワード *確認用", class: "form-title"
+        = f.password_field :password_confirmation, autocomplete: "new-password", class:"form-text"
+      .actions
+        = f.submit "新規登録", class: "submit-btn"
+        = render "devise/shared/links"
+= render 'shared/footer'
