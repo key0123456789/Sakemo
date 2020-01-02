@@ -21,5 +21,6 @@
           = f.password_field :current_password, autocomplete: "current-password", class:"form-text"
         .actions
           = f.submit "更新する", class: "submit-btn"
-          = link_to "戻る", :back
+          .actions__another-links
+            = link_to "戻る", :back
   = render 'shared/footer'

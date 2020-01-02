@@ -120,53 +120,70 @@ a {
   &__form {
     margin: 0 auto;
     &__description {
-      width: calc(100% - 74px);
-      margin: 0 auto 28px;
+      width: calc(100% - 26px);
+      margin: 0 auto 36px;
       border: 1px solid #ccc;
       border-radius: 4px;
-      padding: 12px 36px;
+      padding: 12px 12px;
+      font-size: 0.95em;
+    }
+    .field {
+      width: 500px;
+      margin: 0 auto;
+      .form-title {
+        display: block;
+        border-left: 4px solid $color-red;
+        margin: 12px 0 8px;
+        padding: 0 4px;
+        font-weight: bold;
+      }
+      .form-text {
+        padding: 8px 8px;
+        border-radius: 4px;
+        border: solid 2px #ccc;
+        width: 480px;
+        margin-bottom: 12px;
+      }
+    }
+    .actions {
+      margin: 0 auto;
+      max-width: 500px;
+      width: 100%;
+      .submit-btn {
+        width: 100%;
+        margin: 20px auto;
+        padding: 12px 40px;
+        border-style: none;
+        background-color: $color-red;
+        font-family: $font-gothic;
+        color: white;
+        border-radius: 4px;
+        &:hover {
+          opacity: 0.7;
+          cursor: pointer;
+        }
+      }
+      &__another-links{
+        padding-bottom: 20px;
+        display: block;
+          a {
+          font-size: 0.9em;
+          display: block;
+          padding: 4px 0;
+          color: $color-black;
+          width: 50%;
+          &:hover {
+            color: $color-blue;
+            text-decoration: underline;
+            transition-duration: 500ms;
+          }
+        }
+      }
     }
   }
 }
 
-// form
-.field {
-  width: 500px;
-  margin: 0 auto;
-  .form-title {
-    display: block;
-    border-left: 4px solid $color-red;
-    margin: 12px 0 8px;
-    padding: 0 4px;
-    font-weight: bold;
-  }
-  .form-text {
-    padding: 8px 8px;
-    border-radius: 4px;
-    border: solid 2px #ccc;
-    width: 480px;
-    margin-bottom: 12px;
-  }
-}
-.actions {
-  margin: 0 auto;
-  max-width: 500px;
-  width: 100%;
-  .submit-btn {
-    width: 100%;
-    margin: 20px auto;
-    padding: 12px 40px;
-    border-style: none;
-    background-color: $color-red;
-    font-family: $font-gothic;
-    color: white;
-    border-radius: 4px;
-    &:hover {
-      opacity: 0.7;
-      cursor: pointer;
-    }
-  }
-}
+
 
 // footer
 footer {
