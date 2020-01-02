@@ -97,8 +97,11 @@ a {
 
 // container
 .container {
+  box-sizing: border-box;
   padding-top: 84px;
-  min-height: calc(100vh - 84px);
+  padding-bottom: 100px;
+  height: 100%;
+  min-height: 100vh;
 }
 
 // single-column
@@ -163,7 +166,7 @@ a {
           cursor: pointer;
         }
       }
-      &__another-links{
+      &__another-links {
         padding-bottom: 20px;
         display: block;
           a {
