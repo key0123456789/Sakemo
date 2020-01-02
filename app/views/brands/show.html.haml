@@ -1,7 +1,7 @@
 = render "shared/header"
+- breadcrumb :brand, @brand
+= render partial: 'shared/breadcrumbs'
 .container
-  - breadcrumb :brand, @brand
-  = render partial: 'shared/breadcrumbs'
   .brands-show
     .brands-show__content
       .brands-show__content__left
@@ -9,8 +9,8 @@
         .brands-show__content__left__prefecture 地域
 
       .brands-show__content__right
-        .brands-show__content__right__image
-          %img{ src: "/l_e_others_501.png"}
+        -# .brands-show__content__right__image
+        -#   %img{ src: "/l_e_others_501.png"}
         .brands-show__content__right__like Like
         .brands-show__content__right__bookmark Bookmark
 

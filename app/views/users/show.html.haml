@@ -1,7 +1,7 @@
 = render "shared/header"
+- breadcrumb :mypage, @user
+= render partial: 'shared/breadcrumbs'
 .container
-  - breadcrumb :mypage, @user
-  = render partial: 'shared/breadcrumbs'
   .users-show
     #{@user.nickname} さんのマイページ
     .user-show__brands
