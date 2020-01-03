@@ -5,7 +5,7 @@
   .brands-show
     .brands-show__content
       .brands-show__content__left
-        .brands-show__content__left__name #{@brand.name}
+        %h2.brands-show__content__left__name #{@brand.name}
         .brands-show__content__left__prefecture 地域
 
       .brands-show__content__right
@@ -23,7 +23,7 @@
                 %i.fas.fa-bookmark
 
       .brands-show__content__bottom
-        .brands-show__brewages 種類 / 特定名称酒
+        %h3.brands-show__brewages 種類 / 特定名称酒
         .brands-show__brewages-lists
           %ul
             - @brand.brewages.each do |brewage|
@@ -35,13 +35,26 @@
                     #{brewage.name}
                   %a
                     %span 最終更新日： #{brewage.updated_at}
+        - if current_user
+          .brands-show__brewages__reg-button
+            = link_to new_brand_brewage_path(@brand) do
+              種類を追加する
+      .brands-show__content__bottom
+        %h3.brands-show__feelings 感想
+        .brands-show__feelings-lists
+          %ul
+            - @brand.feelings.each do |feeling|
+              .brands-show__feelings-list
+                %li
+                  %a.brands-show__feelings-list__comment
+                    #{feeling.comment}
+                  %a.brands-show__feelings-list__nickname
+                    #{feeling.user.nickname}
+                  %a.brands-show__feelings-list__date
+                    %span #{feeling.updated_at}
       
         - if current_user
           .brands-show__brewages__feeling-btn
             = link_to new_brand_feeling_path(@brand) do
-              呑んだ！
-          .brands-show__brewages__reg-button
-            = link_to new_brand_brewage_path(@brand) do
-              種類を追加する
-
+              感想を残す
 = render 'shared/footer'
