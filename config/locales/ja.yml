@@ -1,0 +1,8 @@
+ja:
+  views:
+      pagination:
+        first: '<<最初'
+        last: '最後>>'
+        previous: '前の20件'
+        next: '次の20件'
+        truncate: '...'
