@@ -1,0 +1,6 @@
+.feelings-form
+  = form_for [@brand, @feeling] do |f|
+    .feelings-form__comment
+      = f.text_area :comment
+    .feelings-form__submit
+      = f.submit '感想を残す', class: "submit-btn"
