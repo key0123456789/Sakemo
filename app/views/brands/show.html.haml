@@ -37,9 +37,11 @@
                     %span 最終更新日： #{brewage.updated_at}
       
         - if current_user
+          .brands-show__brewages__feeling-btn
+            = link_to new_brand_feeling_path(@brand) do
+              呑んだ！
           .brands-show__brewages__reg-button
             = link_to new_brand_brewage_path(@brand) do
               種類を追加する
-
 
 = render 'shared/footer'
