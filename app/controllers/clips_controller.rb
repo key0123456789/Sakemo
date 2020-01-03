@@ -1,5 +1,10 @@
 class ClipsController < ApplicationController
 
+  def index
+    @user = User.find(current_user.id)
+    @clip_brands = @user.brands.page(params[:page]).per(20)
+  end
+
   def create
     @user_id = current_user.id
     @brand_id = Brand.find(params[:id]).id
