@@ -1,3 +1,58 @@
 .brands-show {
-  // padding-top: 52px;
+  &__content {
+    width: 100%;
+    position: relative;
+    &__bookmark {
+      border: 1px solid #aaa;
+      border-radius: 2px;
+      background-color: #ccc;
+      font-size: 13px;
+      text-align: center;
+      width: 150px;
+      margin-bottom: 8px;
+      position: relative;
+      position: absolute;
+      right: 0;
+    }
+  }
+  &__brewages {
+    &__clip {
+      height: 20px;
+      display: inline-block;
+      a {
+        color: $color-black;
+        font-family: $font-gothic;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        line-height: 26px;
+        i {
+          position: absolute;
+          left: 10px;
+          top: 8px;
+          padding-right: 8px;
+        }
+      }
+      .marked {
+        color: white;
+        background-color: $color-red;
+        border-radius: 2px;
+        &:hover {
+          opacity: 0.8;
+          transition-duration: 500ms;
+        }
+        
+      }
+      &:hover {
+        opacity: 0.8;
+        transition-duration: 500ms;
+        cursor: pointer;
+      }
+    }
+  }
+      h3 {
+        font-family: $font-gothic;
+      }
 }

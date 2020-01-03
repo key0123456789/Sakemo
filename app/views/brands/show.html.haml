@@ -3,57 +3,55 @@
 = render partial: 'shared/breadcrumbs'
 .container
   .brands-show
-    .brands-show__content
-      .brands-show__content__left
-        %h2.brands-show__content__left__name #{@brand.name}
-        .brands-show__content__left__prefecture 地域
-
-      .brands-show__content__right
-        -# .brands-show__content__right__image
-        -#   %img{ src: "/l_e_others_501.png"}
-        .brands-show__content__right__like Like
-        .brands-show__content__right__bookmark Bookmark
+    .brands-show__content.single-column
+      %h2.brands-show__content__name #{@brand.name}
+      
+      .brands-show__content__bookmark
         - if current_user
           .brands-show__brewages__clip
             - if !Clip.exists?(user_id: @current_user , brand_id: @brand_id)
               = link_to add_brand_path(@brand.id), method: :post do
+                ブックマークする
                 %i.far.fa-bookmark
             - else
-              = link_to clip_path(@brand.id), method: :delete do
+              = link_to clip_path(@brand.id), class:"marked", method: :delete do
+                ブックマーク済み
                 %i.fas.fa-bookmark
-
-      .brands-show__content__bottom
+      .brands-show__content__brewages
         %h3.brands-show__brewages 種類 / 特定名称酒
         .brands-show__brewages-lists
-          %ul
-            - @brand.brewages.each do |brewage|
-              .brands-show__brewages-list
-                %li
-                  %a
-                    #{@brand.name}
-                  = link_to brand_brewage_path(brewage) do
-                    #{brewage.name}
-                  %a
-                    %span 最終更新日： #{brewage.updated_at}
-        - if current_user
+          - if @brand.brewages.present?
+            %ul
+              - @brand.brewages.each do |brewage|
+                .brands-show__brewages-list
+                  %li
+                    %a
+                      #{@brand.name}
+                    = link_to brand_brewage_path(brewage) do
+                      #{brewage.name}
+                    %a
+                      %span 最終更新日： #{brewage.updated_at}
+          - else
+            %p 登録されている特定名称酒がありません
           .brands-show__brewages__reg-button
             = link_to new_brand_brewage_path(@brand) do
               種類を追加する
-      .brands-show__content__bottom
+      .brands-show__content__feelings
         %h3.brands-show__feelings 感想
         .brands-show__feelings-lists
-          %ul
-            - @feelings.each do |feeling|
-              .brands-show__feelings-list
-                %li
-                  %a.brands-show__feelings-list__comment
-                    #{feeling.comment}
-                  %a.brands-show__feelings-list__nickname
-                    #{feeling.user.nickname}
-                  %a.brands-show__feelings-list__date
-                    %span #{feeling.updated_at}
-      
-        - if current_user
+          - if @feelings.present?
+            %ul
+              - @feelings.each do |feeling|
+                .brands-show__feelings-list
+                  %li
+                    %a.brands-show__feelings-list__comment
+                      #{feeling.comment}
+                    %a.brands-show__feelings-list__nickname
+                      #{feeling.user.nickname}
+                    %a.brands-show__feelings-list__date
+                      %span #{feeling.updated_at}
+          - else
+            %p 登録されている感想がありません
           .brands-show__brewages__feeling-btn
             = link_to new_brand_feeling_path(@brand) do
               感想を残す
