@@ -13,6 +13,14 @@
         -#   %img{ src: "/l_e_others_501.png"}
         .brands-show__content__right__like Like
         .brands-show__content__right__bookmark Bookmark
+        - if current_user
+          .brands-show__brewages__clip
+            - if !Clip.exists?(user_id: @current_user , brand_id: @brand_id)
+              = link_to add_brand_path(@brand.id), method: :post do
+                %i.far.fa-bookmark
+            - else
+              = link_to clip_path(@brand.id), method: :delete do
+                %i.fas.fa-bookmark
 
       .brands-show__content__bottom
         .brands-show__brewages 種類 / 特定名称酒
@@ -32,13 +40,6 @@
           .brands-show__brewages__reg-button
             = link_to new_brand_brewage_path(@brand) do
               種類を追加する
-          .brands-show__brewages__clip
-            - if !Clip.exists?(user_id: @current_user , brand_id: @brand_id)
-              = link_to add_brand_path(@brand.id), method: :post do
-                %i.far.fa-bookmark
-                
-            - else
-              = link_to clip_path(@brand.id), method: :delete do
-                %i.fas.fa-bookmark
+
 
 = render 'shared/footer'
