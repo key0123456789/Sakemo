@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     get     'signup',  to: 'users/registrations#new'
   end
 
-  resources :users, only: :show
+  resources :users, only: :show do
+    resources :clips, only: [:index]
+  end
 
   resources :brands, only: [:index, :show] do
     member do
