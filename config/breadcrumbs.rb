@@ -29,6 +29,11 @@ crumb :mypage do
   link "マイページ", user_path(current_user)
 end
 
+crumb :clips do
+  link "保存した銘柄", user_clips_path(current_user)
+  parent :mypage
+end
+
 crumb :login do
   link "ログイン", login_path
 end
