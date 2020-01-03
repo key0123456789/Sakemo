@@ -1,0 +1,26 @@
+= render "shared/header"
+- breadcrumb :clips
+= render partial: 'shared/breadcrumbs'
+.container
+  .clips-index.list-column
+    %h2 保存した銘柄 一覧
+    .clips-index__wrapper
+      %ul.clips-index__lists
+        - if @clip_brands.present?
+          - @clip_brands.each do |brand|
+            %li.clips-index__list
+              = link_to brand_path(brand), target: "blank" do
+                .clips-index__list__content
+                  %h3 #{brand.name}
+              .clips-index__list__clip
+                -# - if !Clip.exists?(user_id: current_user.id , brand_id: brand.id)
+                -#   = link_to add_brand_path(brand.id), method: :post do
+                -#     %i.far.fa-bookmark
+                -# - else
+                = link_to clip_path(brand.id), method: :delete do
+                  %i.fas.fa-bookmark
+          .clips-index__lists__page
+            = paginate @clip_brands
+        - else
+          %li 保存した銘柄はありません
+

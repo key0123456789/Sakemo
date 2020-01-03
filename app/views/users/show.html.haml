@@ -5,7 +5,7 @@
   .users-show.single-column
     %h2 #{@user.nickname} さんのマイページ
     .user-show__brands
-      = link_to "#" do
+      = link_to user_clips_path(@user) do
         .fas.fa-bookmark 保存した銘柄: #{@user_clips}
     -# コメント数
     -# Like
