@@ -1,0 +1,26 @@
+.feelings-new {
+  &__form {
+    width: 500px;
+    margin: 0 auto;
+  }
+}
+
+// render
+.feelings-form {
+  .form-title {
+    display: block;
+    border-left: 4px solid $color-red;
+    margin: 12px 0 8px;
+    padding: 0 4px;
+    font-weight: bold;
+  }
+  textarea {
+    width: 482px;
+    height: 150px;
+    padding: 4px 8px;
+    resize: none;
+    border-radius: 4px;
+    border: solid 2px #ccc;
+  }
+
+}
