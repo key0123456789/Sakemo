@@ -5,7 +5,6 @@
   .brands-show
     .brands-show__content.single-column
       %h2.brands-show__content__name #{@brand.name}
-      
       .brands-show__content__bookmark
         - if current_user
           .brands-show__brewages__clip
@@ -17,6 +16,16 @@
               = link_to clip_path(@brand.id), class:"marked", method: :delete do
                 ブックマーク済み
                 %i.fas.fa-bookmark
+
+      .brands-show__content__image
+        - if @brand.brewages.present?
+          - @brand.brewages.each do |brewage|
+            - if brewage.image.present?
+              = image_tag("#{brewage.image}", alt: "#{brewage.name}", height: "400")
+        - else
+          .brands-show__content__right__image
+            = image_tag "/l_e_others_501.png"
+
       .brands-show__content__brewages
         %h3.brands-show__brewages 種類 / 特定名称酒
         .brands-show__brewages-lists

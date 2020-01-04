@@ -70,6 +70,7 @@ a {
 
 // breadcrumbs
 .breadcrumbs {
+  z-index: 99;
   a, span {
     font-family: $font-gothic;
     font-size: 14px;
