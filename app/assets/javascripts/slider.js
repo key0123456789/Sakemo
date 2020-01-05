@@ -1,0 +1,17 @@
+
+$(document).on('turbolinks:load', function(){
+
+  $(function() {
+    $('.slide-image').slick({
+        dots: true,
+        // autoplay: true,
+        // autoplaySpeed: 6000,
+        speed: 800,
+        // font-size: 14px !important;
+        // color: rgb(60, 60, 60) !important;
+        prevArrow:'<i class="fa fa-angle-left arrow arrow-left"></i>',
+        nextArrow:'<i class="fa fa-angle-right arrow arrow-right"></i>'
+    });
+  });
+
+});
