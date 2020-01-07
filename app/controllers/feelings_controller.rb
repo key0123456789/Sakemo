@@ -11,20 +11,25 @@ class FeelingsController < ApplicationController
     @feeling = Feeling.create(feeling_params)
     redirect_to brand_path(@brand)
   end
+  
+  def destroy
+    @brand = Brand.find(params[:brand_id])
+    feeling = Feeling.find_by(brand_id: @brand.id, user_id: current_user.id)
+    feeling.destroy
+    redirect_to brand_path(@brand)
+  end
 
-  # def destroy
-  #   feeling = Feeling.find(params[:id])
-  #   feeling.destroy if feeling.user_id == current_user.id
-  # end
+  def edit
+    @brand = Brand.find(params[:brand_id])
+    @feeling = Feeling.find_by(brand_id: @brand.id, user_id: current_user.id)
+  end
 
-  # def edit
-  #   @feeling = Feeling.find(params[:id])
-  # end
-
-  # def update
-  #   feeling = Feeling.find(params[:id])
-  #   feeling.update(feeling_params) if feeling.user_id == current_user.id
-  # end
+  def update
+    feeling = Feeling.find(params[:id])
+    feeling.update(feeling_params) if feeling.user_id == current_user.id
+    @brand = Brand.find(params[:brand_id])
+    redirect_to brand_path(@brand)
+  end
 
   # def show
   #   @brand = Brand.find(params[:id])

@@ -8,23 +8,29 @@
         .brands-show__content__name__kana #{@brand.name_kana}
       %h2.brands-show__content__name #{@brand.name}
 
-      .brands-show__content__bookmark
-        - if current_user
-          .brands-show__clip
-            - if !Clip.exists?(user_id: @current_user , brand_id: @brand_id)
-              = link_to add_brand_path(@brand.id), method: :post do
-                ブックマークする
-                %i.far.fa-bookmark
-            - else
-              = link_to clip_path(@brand.id), class:"marked", method: :delete do
-                ブックマーク済み
-                %i.fas.fa-bookmark
+      .user-btn
+        .brands-show__content__bookmark
+          - if current_user
+            .brands-show__clip
+              - if !Clip.exists?(user_id: @current_user , brand_id: @brand_id)
+                = link_to add_brand_path(@brand.id), method: :post do
+                  ブックマークする
+                  %i.far.fa-bookmark
+              - else
+                = link_to clip_path(@brand.id), class:"marked", method: :delete do
+                  ブックマーク済み
+                  %i.fas.fa-bookmark
 
-      .brands-show__content__feeling-btn
-        - if current_user
-          = link_to new_brand_feeling_path(@brand) do
-            きろくをつける
-            %i.fas.fa-pen
+        .brands-show__content__feeling-btn
+          - if current_user
+            - if !Feeling.exists?(user_id: @current_user , brand_id: @brand_id)
+              = link_to new_brand_feeling_path(@brand) do
+                きろくをつける
+                %i.fas.fa-pen
+            - else
+              = link_to edit_brand_feeling_path(@brand), class: "marked" do
+                きろくを編集する
+                %i.fas.fa-pen
 
       .brands-show__content__image
         %ul.slide-image
@@ -65,7 +71,7 @@
                       %i.fas.fa-plus
 
       .brands-show__content__feelings
-        %h3.brands-show__feelings-title みんなの感想
+        %h3.brands-show__feelings-title みんなのコメント
         .brands-show__feelings-lists
           - if @feelings.present?
             %ul.brands-show__feelings-list
