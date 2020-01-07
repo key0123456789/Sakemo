@@ -28,6 +28,10 @@ crumb :feelings_new do |feeling|
   link "呑んだ感想"
 end
 
+crumb :feelings_edit do |feeling|
+  link "呑んだ感想の編集"
+end
+
 # user
 crumb :mypage do
   link "マイページ", user_path(current_user)
