@@ -37,6 +37,6 @@ class FeelingsController < ApplicationController
   # end
 
   def feeling_params
-    params.require(:feeling).permit(:id, :comment).merge(brand_id: params[:brand_id], user_id: current_user.id)
+    params.require(:feeling).permit(:id, :comment, :flavor, :aroma, :body, :sharp, :favorite).merge(brand_id: params[:brand_id], user_id: current_user.id)
   end
 end
