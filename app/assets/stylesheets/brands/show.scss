@@ -253,7 +253,10 @@
       margin: 0 auto;
     }
     .no-image {
+      height: 50vh;
+      max-height: 400px;
       width: 100%;
+      max-width: 355px;
     }
     .arrow-right {
       position: absolute;
@@ -343,4 +346,13 @@
       }
     }
   }
+}
+
+// スライダー読み込み後にフェードイン
+.slider{
+  opacity: 0;
+  transition: opacity .3s linear;
+}
+.slider.slick-initialized{
+  opacity: 1;
 }
