@@ -9,8 +9,8 @@
       %h2.brands-show__content__name #{@brand.name}
 
       .user-btn
-        .brands-show__content__bookmark
-          - if current_user
+        - if current_user
+          .brands-show__content__bookmark
             .brands-show__clip
               - if !Clip.exists?(user_id: @current_user , brand_id: @brand_id)
                 = link_to add_brand_path(@brand.id), method: :post do
@@ -21,8 +21,8 @@
                   ブックマーク済み
                   %i.fas.fa-bookmark
 
-        .brands-show__content__feeling-btn
-          - if current_user
+        - if current_user
+          .brands-show__content__feeling-btn
             - if !Feeling.exists?(user_id: @current_user , brand_id: @brand_id)
               = link_to new_brand_feeling_path(@brand) do
                 きろくをつける
