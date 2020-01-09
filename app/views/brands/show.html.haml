@@ -3,43 +3,118 @@
 = render partial: 'shared/breadcrumbs'
 .container
   .brands-show
-    .brands-show__content
-      .brands-show__content__left
-        .brands-show__content__left__name #{@brand.name}
-        .brands-show__content__left__prefecture 地域
+    .brands-show__content.single-column
+      - if @brand.name_kana.present?
+        .brands-show__content__name__kana #{@brand.name_kana}
+      %h2.brands-show__content__name #{@brand.name}
 
-      .brands-show__content__right
-        -# .brands-show__content__right__image
-        -#   %img{ src: "/l_e_others_501.png"}
-        .brands-show__content__right__like Like
-        .brands-show__content__right__bookmark Bookmark
+      .user-btn
         - if current_user
-          .brands-show__brewages__clip
-            - if !Clip.exists?(user_id: @current_user , brand_id: @brand_id)
-              = link_to add_brand_path(@brand.id), method: :post do
-                %i.far.fa-bookmark
+          .brands-show__content__bookmark
+            .brands-show__clip
+              - if !Clip.exists?(user_id: @current_user , brand_id: @brand_id)
+                = link_to add_brand_path(@brand.id), method: :post do
+                  ブックマークする
+                  %i.far.fa-bookmark
+              - else
+                = link_to clip_path(@brand.id), class:"marked", method: :delete do
+                  ブックマーク済み
+                  %i.fas.fa-bookmark
+
+        - if current_user
+          .brands-show__content__feeling-btn
+            - if !Feeling.exists?(user_id: @current_user , brand_id: @brand_id)
+              = link_to new_brand_feeling_path(@brand) do
+                きろくをつける
+                %i.fas.fa-pen
             - else
-              = link_to clip_path(@brand.id), method: :delete do
-                %i.fas.fa-bookmark
+              = link_to edit_brand_feeling_path(@brand), class: "marked" do
+                きろくを編集する
+                %i.fas.fa-pen
 
-      .brands-show__content__bottom
-        .brands-show__brewages 種類 / 特定名称酒
+      .brands-show__content-top
+        .brands-show__content__image
+          %ul.slide-image
+            - if @brand.brewages.present?
+              - @brand.brewages.each do |brewage|
+                - if brewage.image.present?
+                  %li
+                    = image_tag("#{brewage.image}", alt: "#{brewage.name}", class: "image")
+            - else
+              .slide-image
+                = image_tag "/l_e_others_501.png", class: "no_image"
+
+        .brands-show__content__feeling__rate
+          - if current_user
+            - if !Feeling.exists?(user_id: @current_user , brand_id: @brand_id)
+              きろくはありません
+            - else
+              .brands-show__content__feeling__rate__note
+                .rate
+                  .rate-name 味わい
+                  .rate-border{data: {number: "#{@user_feeling.flavor}"}}
+                    %a.rate-border-number{data: {number: "#{@user_feeling.flavor}"}} ▼
+                  .rate-name 華やかさ
+                  .rate-border{data: {number: "#{@user_feeling.aroma}"}}
+                    %a.rate-border-number{data: {number: "#{@user_feeling.aroma}"}} ▼
+                  .rate-name コク
+                  .rate-border{data: {number: "#{@user_feeling.body}"}}
+                    %a.rate-border-number{data: {number: "#{@user_feeling.body}"}} ▼
+                  .rate-name キレ
+                  .rate-border{data: {number: "#{@user_feeling.sharp}"}}
+                    %a.rate-border-number{data: {number: "#{@user_feeling.sharp}"}} ▼
+                  -# .rate-name コメント
+                  -# .rate-comment #{@user_feeling.comment}
+                  .rate-name お気に入り度
+                  .rate-border{data: {number: "#{@user_feeling.favorite}"}}
+                    %a.rate-border-number{data: {number: "#{@user_feeling.favorite}"}} ▼
+
+      .brands-show__content__brewages
+        %h3.brands-show__brewages-title 種類 / 特定名称酒
         .brands-show__brewages-lists
-          %ul
-            - @brand.brewages.each do |brewage|
-              .brands-show__brewages-list
-                %li
-                  %a
-                    #{@brand.name}
-                  = link_to brand_brewage_path(brewage) do
-                    #{brewage.name}
-                  %a
-                    %span 最終更新日： #{brewage.updated_at}
-      
-        - if current_user
-          .brands-show__brewages__reg-button
-            = link_to new_brand_brewage_path(@brand) do
-              種類を追加する
+          - if @brand.brewages.present?
+            %ul.brands-show__brewages-list
+              - @brand.brewages.each do |brewage|
+                %li.brands-show__brewages-list-content
+                  = link_to brand_brewage_path(brewage), class:"link brands-show__brewages-list-name" do
+                    #{@brand.name} #{brewage.name}
+                  %a.brands-show__brewages-list-update.brands-show__brewages-list-name-hover #{@brand.name} #{brewage.name}
+                  = image_tag("#{brewage.image}", class: "brands-show__brewages-list-image")
+              %li.brands-show__brewages-list-content
+                .brands-show__brewages-list-content__add
+                  = link_to new_brand_brewage_path(@brand), class: "brands-show__brewages-list-add" do
+                    %p 種類を追加する
+                    .circle
+                      %i.fas.fa-plus
+          - else
+            %p.no-registration 登録されている 種類 / 特定名称酒 はありません 
+            %ul.brands-show__brewages-list
+              %li.brands-show__brewages-list-content
+                .brands-show__brewages-list-content__add
+                  = link_to new_brand_brewage_path(@brand), class: "brands-show__brewages-list-add" do
+                    %p 種類を追加する
+                    .circle
+                      %i.fas.fa-plus
 
+      .brands-show__content__feelings
+        %h3.brands-show__feelings-title みんなのコメント
+        .brands-show__feelings-lists
+          - if @feelings.present?
+            %ul.brands-show__feelings-list
+              - @feelings.each do |feeling|
+                %li.brands-show__feelings-list__content
+                  .brands-show__feelings-list__content-main
+                    %a.brands-show__feelings-list__comment
+                      #{feeling.comment}
+                  .brands-show__feelings-list__content-bottom
+                    %a.brands-show__feelings-list__nickname
+                      #{feeling.user.nickname}
+                    %a.brands-show__feelings-list__date
+                      %span #{feeling.updated_at}
+          - else
+            %p.no-registration 登録されているきろくがありません
 
 = render 'shared/footer'
+%link{:href => "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css", :rel => "stylesheet", :type => "text/css"}/
+%link{:href => "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css", :rel => "stylesheet", :type => "text/css"}/
+%script{:src => "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js", :type => "text/javascript"}

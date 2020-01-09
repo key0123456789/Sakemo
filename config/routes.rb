@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       post "add", to: "clips#create"
     end
     resources :brewages, only: [:show, :new, :create]
+    resources :feelings, except: [:index, :show]
   end
   
   resources :clips, only: [:destroy]

@@ -1,0 +1,16 @@
+= render "shared/header"
+- breadcrumb :feelings_new
+= render partial: 'shared/breadcrumbs'
+.container
+  .feelings-new.single-column
+    .feelings-new__title
+      %h2 #{@brand.name}のきろく
+    .feelings-new__form.single-column__form
+      = render "form"
+      .actions
+        .actions__another-links
+          = link_to :back, class: "back-btn" do
+            %i.fas.fa-chevron-circle-right
+            戻る
+
+= render 'shared/footer'

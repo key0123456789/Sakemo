@@ -24,6 +24,14 @@ crumb :brewages_show do |brewage|
   # parent :brand
 end
 
+crumb :feelings_new do |feeling|
+  link "呑んだきろく"
+end
+
+crumb :feelings_edit do |feeling|
+  link "呑んだきろくの編集"
+end
+
 # user
 crumb :mypage do
   link "マイページ", user_path(current_user)

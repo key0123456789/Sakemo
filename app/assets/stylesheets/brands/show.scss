@@ -1,3 +1,431 @@
 .brands-show {
-  // padding-top: 52px;
+  &__content {
+    width: 100%;
+    position: relative;
+    h2 {
+      font-size: 1.6em;
+    }
+    h3 {
+      padding: 12px 0 8px;
+      width: 100%;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 12px;
+    }
+    .no-registration {
+      padding: 4px 0 16px;
+    }
+    .user-btn {
+      display: flex;
+      justify-content: flex-end;
+      position: absolute;
+      right: 0;
+    }
+    &__name__kana {
+      font-size: small;
+      width: 100%;
+      text-align: center;
+      padding-top: 24px;
+    }
+    &__bookmark {
+      border: 1px solid #aaa;
+      border-radius: 2px;
+      background-color: #ccc;
+      font-size: 13px;
+      text-align: center;
+      width: 150px;
+      margin-bottom: 8px;
+      margin-right: 8px;
+      position: relative;
+    }
+    &__feeling-btn {
+      border: 1px solid #aaa;
+      border-radius: 2px;
+      background-color: #ccc;
+      font-size: 13px;
+      text-align: center;
+      width: 150px;
+      margin-bottom: 8px;
+      position: relative;
+      right: 0;
+      height: 25px;
+      display: block;
+      a {
+        color: $color-black;
+        font-family: $font-gothic;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        line-height: 26px;
+        i {
+          position: absolute;
+          left: 10px;
+          top: 8px;
+          padding-right: 8px;
+        }
+      }
+      &:hover {
+        opacity: 0.7;
+        transition-duration: 500ms;
+        cursor: pointer;
+      }
+      .marked {
+        border-color: skyblue;
+        background-color: $color-blue;
+        border-radius: 2px;
+        width: 150px;
+        &:hover {
+          opacity: 0.7;
+          transition-duration: 500ms;
+        }
+      }
+      &:hover {
+        opacity: 0.7;
+        transition-duration: 500ms;
+        cursor: pointer;
+      }
+    }
+    &-top {
+      display: flex;
+    }
+    &__feeling {
+      &__rate {
+        display: block;
+        width: 100%;
+        max-width: 500px;
+        min-width: 300px;
+        padding: 48px 0 0 40px;
+        float: right;
+        &__note {
+          .rate {
+            &-name {
+              margin-top: 4px;
+              font-size: 0.9em;
+              font-weight: bold;
+            }
+            &-border {
+              width : 100%;
+              height: 24px;
+              border-bottom: 8px solid $color-blue;
+              margin-bottom: 12px;
+              position: relative;
+              &:after {
+                position: absolute;
+                display: block;
+                content: " ";
+                border-bottom: solid 8px $color-red;
+                bottom: -8px;
+                transition-delay: 400ms;
+              }
+              &-number {
+                position: absolute;
+                display: block;
+                bottom: 8px;
+                color: gray;
+                -moz-transform: translateX(-50%);
+                -webkit-transform: translateX(-50%);
+                -ms-transform: translateX(-50%);
+                transform: translate(-50%);
+              }
+              &-number[data-number="1"] {
+                left: 0%;
+              }
+              &-number[data-number="2"] {
+                left: 25%;
+              }
+              &-number[data-number="3"] {
+                left: 50%;
+              }
+              &-number[data-number="4"] {
+                left: 75%;
+              }
+              &-number[data-number="5"] {
+                left: 100%;
+              }
+            }
+            &-border[data-number="2"]:after {
+              width: 25%; 
+            }
+            &-border[data-number="3"]:after {
+              width: 50%; 
+            }
+            &-border[data-number="4"]:after {
+              width: 75%; 
+            }
+            &-border[data-number="5"]:after {
+              width: 100%; 
+            }
+          }
+        }
+      }
+    }
+  }
+  &__clip {
+    height: 20px;
+    a {
+      color: $color-black;
+      font-family: $font-gothic;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      line-height: 26px;
+      i {
+        position: absolute;
+        left: 10px;
+        top: 8px;
+        padding-right: 8px;
+      }
+    }
+    .marked {
+      color: white;
+      background-color: $color-red;
+      border-radius: 2px;
+      width: 150px;
+      &:hover {
+        opacity: 0.7;
+        transition-duration: 500ms;
+      }
+    }
+    &:hover {
+      opacity: 0.7;
+      transition-duration: 500ms;
+      cursor: pointer;
+    }
+  }
+  &__brewages {
+    height: auto;
+    &-lists {
+      width: 100%;
+    }
+    &-list {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      margin: 0 auto;
+      a :link, :visited {
+        color: white;
+      }
+      &-content {
+        width: 220px;
+        height: 300px;
+        font-size: 0.9em;
+        border: 1px solid #aaa;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        margin: 0 12px 24px 0;
+        .link {
+          display: block;
+          z-index: 20;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          &:hover {
+            opacity: 0.1;
+            transition-duration: 600ms;
+          }
+        }
+        &__add {
+          background: color;
+          color: $color-black;
+          z-index: 10;
+        }
+      }
+      &-name {
+        position: absolute;
+        display: block;
+        background-color: #555;
+        color: white;
+        padding: 4px 0;
+        width: 100%;
+        z-index: 10;
+        opacity: 0.8;
+      }
+      &-name-hover {
+        position: absolute;
+        display: block;
+        padding: 4px 0;
+        width: 100%;
+        z-index: 10;
+        color: white;
+        background-color: $color-black;
+        opacity: 0.8;
+      }
+      &-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        top: 0;
+        left: 0;
+        z-index: 5;
+      }
+      &-add {
+        background-color: #aaa;
+        display: block;
+        z-index: 20;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        &:hover {
+          opacity: 0.7;
+        }
+        P {
+          font-family: $font-gothic;
+          color: #555;
+          font-size: 1.1em;
+          position: absolute;
+          top: 10%;
+          left: 50%;
+          transform: translateX(-50%);
+          padding: 12px 0;
+          text-align: center;
+        }
+        .circle {
+          top: 50%;
+          transform: translateY(-50%);
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          background-color: #ccc;
+          position: relative;
+          margin: 0 auto;
+        }
+        i {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translateY(-50%) translateX(-50%);
+          font-size: 60px;
+        }
+      }
+    }
+  }
+  h3 {
+    font-family: $font-gothic;
+  }
+  .slide-image {
+    height: 50vh;
+    max-height: 400px;
+    width: 100%;
+    max-width: 355px;
+    position: relative;
+    border: 1px solid #aaa;
+    overflow: hidden;
+    background: #eee;
+    .image {
+      object-fit: cover; 
+      margin: 0 auto;
+    }
+    .no-image {
+      height: 50vh;
+      max-height: 400px;
+      width: 100%;
+      max-width: 355px;
+    }
+    .arrow-right {
+      position: absolute;
+      padding: 8px 12px;
+      opacity: 0.5;
+      color: white;
+      top: 50%;
+      right: 0;
+      z-index: 1;
+      &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+        background-color: $color-black;
+        transition-duration: 600ms;
+      }
+    }
+    .arrow-left {
+      position: absolute;
+      padding: 8px 12px;
+      opacity: 0.5;
+      color: white;
+      top: 50%;
+      left: 0;
+      z-index: 1;
+      &:hover {
+        background-color: $color-black;
+        opacity: 0.8;
+        cursor: pointer;
+        transition-duration: 600ms;
+      }
+    }
+  }
+  .slick-dots {
+    position: absolute !important;
+    bottom: 28px !important;
+    li {
+      font-size: 10px !important;
+      button:before {
+        content: "●" !important;
+        font-size: 12px !important;
+        color: white !important;
+      }
+    }
+  }
+  &__feelings {
+    &-lists {
+      .brands-show__feelings-list {
+        margin-bottom: 80px;
+        height: auto;
+        min-height: 300px;
+        max-height: 600px;
+        overflow: scroll;
+        border: 1px solid #aaa;
+        padding: 28px 16px;
+        border-radius: 4px;
+        &__content {
+          border-radius: 4px;
+          background-color: $color-blue;
+          padding: 12px 8px;
+          margin-bottom: 24px;
+          position: relative;
+          &-main {
+            font-size: 0.9em;
+          }
+          &-bottom {
+            display: block;
+            right: 0;
+            background-color: $color-white;
+            border: 1px solid skyblue;
+            border-radius: 4px;
+            padding: 2px 16px; 
+            position: absolute;
+          }
+        }
+        &__comment {
+          
+        }
+        &__nickname {
+          font-size: 0.9em;
+          font-weight: bold;
+          padding-right: 8px;
+        }
+        &__date {
+          font-size: 0.8em;
+          
+        }
+      }
+    }
+  }
+}
+
+// スライダー読み込み後にフェードイン
+.slider{
+  opacity: 0;
+  transition: opacity .3s linear;
+}
+.slider.slick-initialized{
+  opacity: 1;
 }

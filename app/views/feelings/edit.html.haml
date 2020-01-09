@@ -1,0 +1,21 @@
+= render "shared/header"
+- breadcrumb :feelings_edit
+= render partial: 'shared/breadcrumbs'
+.container
+  .feelings-new.single-column
+    .feelings-new__title
+      %h2 #{@brand.name}のきろく
+    .feelings-new__form.single-column__form
+      = render "form"
+
+      .actions
+        .actions__another-links-right
+          = link_to brand_feeling_path(@brand), method: :delete, class: "delete-btn" do
+            %i.fas.fa-trash-alt
+            きろくを削除する
+        .actions__another-links
+          = link_to :back, class: "back-btn" do
+            %i.fas.fa-chevron-circle-right
+            戻る
+
+= render 'shared/footer'

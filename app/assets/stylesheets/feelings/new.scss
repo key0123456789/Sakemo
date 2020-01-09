@@ -1,0 +1,75 @@
+.feelings-new {
+  &__form {
+    width: 500px;
+    margin: 0 auto;
+  }
+}
+
+// render
+.feelings-form {
+  .form-title {
+    display: block;
+    border-left: 4px solid $color-red;
+    margin: 12px 0 8px;
+    padding: 0 4px;
+    font-weight: bold;
+  }
+  textarea {
+    width: 482px;
+    height: 128px;
+    padding: 4px 8px;
+    resize: none;
+    border-radius: 4px;
+    border: solid 2px #ccc;
+  }
+
+  // ラジオボタンの装飾
+  &__radio {
+    box-sizing: border-box;
+    &__selector {
+      display: flex;
+      border-radius: 3px;
+      overflow: hidden;
+      border: 1px solid #b6b6b6;
+      height: 48px;
+      min-width: 400px;
+      max-width: 100%;
+      color: #333;
+      font-weight: bold;
+      font-size: 1.0em;
+      margin-bottom: 24px;
+      .r {
+        position: relative;
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        input {
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+        }
+        label {
+          position: absolute;
+          top: 0; 
+          left: 0;
+          color: #666;
+          width: 100%;
+          height: 100%;
+          background: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          pointer-events: none;
+          font-family: $font-gothic;
+        }
+        input:checked + label {
+          transition-duration: 300ms;
+          background: $color-red;
+          font-weight: 500;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+

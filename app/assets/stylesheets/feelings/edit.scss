@@ -1,0 +1,18 @@
+.actions {
+  width: 100%;
+  .actions__another-links-right {
+    text-align: right;
+    color: $color-black;
+    font-size: 0.9em;
+    a {
+      &:link,:visited {
+        color: $color-black;
+      }
+      &:hover {
+        transition-duration: 600ms;
+        color: $color-blue;
+        text-decoration: underline;
+      }
+    }
+  }
+}

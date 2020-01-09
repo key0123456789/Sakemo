@@ -70,6 +70,7 @@ a {
 
 // breadcrumbs
 .breadcrumbs {
+  z-index: 99;
   a, span {
     font-family: $font-gothic;
     font-size: 14px;
@@ -152,20 +153,6 @@ a {
       margin: 0 auto;
       max-width: 500px;
       width: 100%;
-      .submit-btn {
-        width: 100%;
-        margin: 20px auto;
-        padding: 12px 40px;
-        border-style: none;
-        background-color: $color-red;
-        font-family: $font-gothic;
-        color: white;
-        border-radius: 4px;
-        &:hover {
-          opacity: 0.7;
-          cursor: pointer;
-        }
-      }
       &__another-links {
         padding-bottom: 20px;
         display: block;
@@ -181,6 +168,22 @@ a {
             transition-duration: 500ms;
           }
         }
+      }
+    }
+    .submit-btn {
+      width: 100%;
+      margin: 20px auto;
+      padding: 12px 40px;
+      border-style: none;
+      background-color: #aaa;
+      font-family: $font-gothic;
+      color: $color-black;
+      border-radius: 4px;
+      &:hover {
+        background-color: $color-red;
+        color: white;
+        transition-duration: 500ms;
+        cursor: pointer;
       }
     }
   }

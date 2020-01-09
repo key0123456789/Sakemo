@@ -2,6 +2,7 @@ class Brand < ApplicationRecord
   has_many :brewages
   has_many :clips
   has_many :users, through: :clips
+  has_many :feelings
 
   def self.search(search)
     if search
