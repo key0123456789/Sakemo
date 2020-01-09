@@ -50,16 +50,24 @@
               きろくはありません
             - else
               .brands-show__content__feeling__rate__note
-                %p #{@user.nickname}さんのきろく
-                %p 味わい　#{@user_feeling.flavor}
-                %p 華やかさ　#{@user_feeling.aroma}
-                %p コク　#{@user_feeling.body}
-                %p キレ　#{@user_feeling.sharp}
-                %p コメント　#{@user_feeling.comment}
-                %p お気に入り度　#{@user_feeling.favorite}
-
-
-
+                .rate
+                  .rate-name 味わい
+                  .rate-border{data: {number: "#{@user_feeling.flavor}"}}
+                    %a.rate-border-number{data: {number: "#{@user_feeling.flavor}"}} ▼
+                  .rate-name 華やかさ
+                  .rate-border{data: {number: "#{@user_feeling.aroma}"}}
+                    %a.rate-border-number{data: {number: "#{@user_feeling.aroma}"}} ▼
+                  .rate-name コク
+                  .rate-border{data: {number: "#{@user_feeling.body}"}}
+                    %a.rate-border-number{data: {number: "#{@user_feeling.body}"}} ▼
+                  .rate-name キレ
+                  .rate-border{data: {number: "#{@user_feeling.sharp}"}}
+                    %a.rate-border-number{data: {number: "#{@user_feeling.sharp}"}} ▼
+                  -# .rate-name コメント
+                  -# .rate-comment #{@user_feeling.comment}
+                  .rate-name お気に入り度
+                  .rate-border{data: {number: "#{@user_feeling.favorite}"}}
+                    %a.rate-border-number{data: {number: "#{@user_feeling.favorite}"}} ▼
 
       .brands-show__content__brewages
         %h3.brands-show__brewages-title 種類 / 特定名称酒

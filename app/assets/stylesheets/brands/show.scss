@@ -92,9 +92,70 @@
     &__feeling {
       &__rate {
         display: block;
-        width: 40%;
+        width: 100%;
         padding: 48px 0 0 40px;
         float: right;
+        &__note {
+          .rate {
+            &-name {
+              margin-top: 4px;
+              font-size: 0.9em;
+              font-weight: bold;
+            }
+            &-border {
+              width : 100%;
+              height: 24px;
+              border-bottom: 8px solid $color-blue;
+              margin-bottom: 12px;
+              position: relative;
+              &:after {
+                position: absolute;
+                display: block;
+                content: " ";
+                border-bottom: solid 8px $color-red;
+                bottom: -8px;
+                transition-delay: 400ms;
+              }
+              &-number {
+                position: absolute;
+                display: block;
+                bottom: 8px;
+                color: gray;
+                -moz-transform: translateX(-50%);
+                -webkit-transform: translateX(-50%);
+                -ms-transform: translateX(-50%);
+                transform: translate(-50%);
+              }
+              &-number[data-number="1"] {
+                left: 0%;
+              }
+              &-number[data-number="2"] {
+                left: 25%;
+              }
+              &-number[data-number="3"] {
+                left: 50%;
+              }
+              &-number[data-number="4"] {
+                left: 75%;
+              }
+              &-number[data-number="5"] {
+                left: 100%;
+              }
+            }
+            &-border[data-number="2"]:after {
+              width: 25%; 
+            }
+            &-border[data-number="3"]:after {
+              width: 50%; 
+            }
+            &-border[data-number="4"]:after {
+              width: 75%; 
+            }
+            &-border[data-number="5"]:after {
+              width: 100%; 
+            }
+          }
+        }
       }
     }
   }
