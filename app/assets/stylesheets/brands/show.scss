@@ -16,7 +16,6 @@
     }
     .user-btn {
       display: flex;
-      flex-wrap: wrap;
       justify-content: flex-end;
       position: absolute;
       right: 0;
@@ -85,6 +84,17 @@
         opacity: 0.7;
         transition-duration: 500ms;
         cursor: pointer;
+      }
+    }
+    &-top {
+      display: flex;
+    }
+    &__feeling {
+      &__rate {
+        display: block;
+        width: 40%;
+        padding: 48px 0 0 40px;
+        float: right;
       }
     }
   }

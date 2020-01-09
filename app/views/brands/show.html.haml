@@ -32,16 +32,34 @@
                 きろくを編集する
                 %i.fas.fa-pen
 
-      .brands-show__content__image
-        %ul.slide-image
-          - if @brand.brewages.present?
-            - @brand.brewages.each do |brewage|
-              - if brewage.image.present?
-                %li
-                  = image_tag("#{brewage.image}", alt: "#{brewage.name}", class: "image")
-          - else
-            .slide-image
-              = image_tag "/l_e_others_501.png", class: "no_image"
+      .brands-show__content-top
+        .brands-show__content__image
+          %ul.slide-image
+            - if @brand.brewages.present?
+              - @brand.brewages.each do |brewage|
+                - if brewage.image.present?
+                  %li
+                    = image_tag("#{brewage.image}", alt: "#{brewage.name}", class: "image")
+            - else
+              .slide-image
+                = image_tag "/l_e_others_501.png", class: "no_image"
+
+        .brands-show__content__feeling__rate
+          - if current_user
+            - if !Feeling.exists?(user_id: @current_user , brand_id: @brand_id)
+              きろくはありません
+            - else
+              .brands-show__content__feeling__rate__note
+                %p #{@user.nickname}さんのきろく
+                %p 味わい　#{@user_feeling.flavor}
+                %p 華やかさ　#{@user_feeling.aroma}
+                %p コク　#{@user_feeling.body}
+                %p キレ　#{@user_feeling.sharp}
+                %p コメント　#{@user_feeling.comment}
+                %p お気に入り度　#{@user_feeling.favorite}
+
+
+
 
       .brands-show__content__brewages
         %h3.brands-show__brewages-title 種類 / 特定名称酒
