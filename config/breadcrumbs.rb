@@ -25,11 +25,11 @@ crumb :brewages_show do |brewage|
 end
 
 crumb :feelings_new do |feeling|
-  link "呑んだ感想"
+  link "呑んだきろく"
 end
 
 crumb :feelings_edit do |feeling|
-  link "呑んだ感想の編集"
+  link "呑んだきろくの編集"
 end
 
 # user
