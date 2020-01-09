@@ -3,66 +3,92 @@
     .feelings-form__radio
       .form-title 味わい
       .feelings-form__radio__selector
-        = f.radio_button :flavor, 1
-        = f.label :flavor, "辛口", {value: 1}
-        = f.radio_button :flavor, 2
-        = f.label :flavor, "・", {value: 2}
-        = f.radio_button :flavor, 3, {checked: "checked"}
-        = f.label :flavor, "・", {value: 3}
-        = f.radio_button :flavor, 4
-        = f.label :flavor, "・", {value: 4}
-        = f.radio_button :flavor, 5
-        = f.label :flavor, "甘口", {value: 5}
+        .r
+          = f.radio_button :flavor, 1
+          = f.label :flavor, "辛口", {value: 1}
+        .r
+          = f.radio_button :flavor, 2
+          = f.label :flavor, "・", {value: 2}
+        .r
+          = f.radio_button :flavor, 3, {checked: "checked"}
+          = f.label :flavor, "・", {value: 3}
+        .r
+          = f.radio_button :flavor, 4
+          = f.label :flavor, "・", {value: 4}
+        .r
+          = f.radio_button :flavor, 5
+          = f.label :flavor, "甘口", {value: 5}
       .form-title 香り
       .feelings-form__radio__selector
-        = f.radio_button :aroma, 1
-        = f.label :aroma, "穏やか", {value: 1}
-        = f.radio_button :aroma, 2
-        = f.label :aroma, "・", {value: 2}
-        = f.radio_button :aroma, 3, {checked: "checked"}
-        = f.label :aroma, "・", {value: 3}
-        = f.radio_button :aroma, 4
-        = f.label :aroma, "・", {value: 4}
-        = f.radio_button :aroma, 5
-        = f.label :aroma, "華やか", {value: 5}
+        .r
+          = f.radio_button :aroma, 1
+          = f.label :aroma, "穏やか", {value: 1}
+        .r
+          = f.radio_button :aroma, 2
+          = f.label :aroma, "・", {value: 2}
+        .r
+          = f.radio_button :aroma, 3, {checked: "checked"}
+          = f.label :aroma, "・", {value: 3}
+        .r
+          = f.radio_button :aroma, 4
+          = f.label :aroma, "・", {value: 4}
+        .r
+          = f.radio_button :aroma, 5
+          = f.label :aroma, "華やか", {value: 5}
       .form-title コク
       .feelings-form__radio__selector
-        = f.radio_button :body, 1
-        = f.label :body, "あっさり", {value: 1}
-        = f.radio_button :body, 2
-        = f.label :body, "・", {value: 2}
-        = f.radio_button :body, 3, {checked: "checked"}
-        = f.label :body, "・", {value: 3}
-        = f.radio_button :body, 4
-        = f.label :body, "・", {value: 4}
-        = f.radio_button :body, 5
-        = f.label :body, "重厚", {value: 5}
+        .r
+          = f.radio_button :body, 1
+          = f.label :body, "あっさり", {value: 1}
+        .r
+          = f.radio_button :body, 2
+          = f.label :body, "・", {value: 2}
+        .r
+          = f.radio_button :body, 3, {checked: "checked"}
+          = f.label :body, "・", {value: 3}
+        .r
+          = f.radio_button :body, 4
+          = f.label :body, "・", {value: 4}
+        .r
+          = f.radio_button :body, 5
+          = f.label :body, "重厚", {value: 5}
       .form-title キレ
       .feelings-form__radio__selector
-        = f.radio_button :sharp, 1
-        = f.label :sharp, "ふくよか", {value: 1}
-        = f.radio_button :sharp, 2
-        = f.label :sharp, "・", {value: 2}
-        = f.radio_button :sharp, 3, {checked: "checked"}
-        = f.label :sharp, "・", {value: 3}
-        = f.radio_button :sharp, 4
-        = f.label :sharp, "・", {value: 4}
-        = f.radio_button :sharp, 5
-        = f.label :sharp, "シャープ", {value: 5}
-      .form-title お気に入り度
-      .feelings-form__radio__selector
-        = f.radio_button :favorite, 1
-        = f.label :favorite, "＜低", {value: 1}
-        = f.radio_button :favorite, 2
-        = f.label :favorite, "・", {value: 2}
-        = f.radio_button :favorite, 3, {checked: "checked"}
-        = f.label :favorite, "Like!", {value: 3}
-        = f.radio_button :favorite, 4
-        = f.label :favorite, "・", {value: 4}
-        = f.radio_button :favorite, 5
-        = f.label :favorite, "高＞", {value: 5}
+        .r
+          = f.radio_button :sharp, 1
+          = f.label :sharp, "ふくよか", {value: 1}
+        .r
+          = f.radio_button :sharp, 2
+          = f.label :sharp, "・", {value: 2}
+        .r
+          = f.radio_button :sharp, 3, {checked: "checked"}
+          = f.label :sharp, "・", {value: 3}
+        .r
+          = f.radio_button :sharp, 4
+          = f.label :sharp, "・", {value: 4}
+        .r
+          = f.radio_button :sharp, 5
+          = f.label :sharp, "シャープ", {value: 5}
     .feelings-form__comment
       = f.label :comment, "コメント", class: "form-title"
       = f.text_area :comment
+    .feelings-form__radio
+      .form-title お気に入り度
+      .feelings-form__radio__selector
+        .r
+          = f.radio_button :favorite, 1
+          = f.label :favorite, "＜ 低", {value: 1}
+        .r
+          = f.radio_button :favorite, 2
+          = f.label :favorite, "・", {value: 2}
+        .r
+          = f.radio_button :favorite, 3, {checked: "checked"}
+          = f.label :favorite, "Like!", {value: 3}
+        .r
+          = f.radio_button :favorite, 4
+          = f.label :favorite, "・", {value: 4}
+        .r
+          = f.radio_button :favorite, 5
+          = f.label :favorite, "高 ＞", {value: 5}
     .feelings-form__submit
       = f.submit 'この内容できろくする', class: "submit-btn"
