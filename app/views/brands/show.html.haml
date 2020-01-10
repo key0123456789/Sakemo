@@ -106,28 +106,29 @@
           - if @feelings.present?
             %ul.brands-show__feelings-list
               - @feelings.each do |feeling|
-                - if user_signed_in? && @user_id == feeling.user_id
-                  %li.brands-show__feelings-list__content.content-mine
-                    .brands-show__feelings-list__content-main
-                      %a.brands-show__feelings-list__comment
-                        #{feeling.comment}
-                    .brands-show__feelings-list__content-bottom.bottom-mine
-                      %a.brands-show__feelings-list__nickname
-                        #{feeling.user.nickname}
-                      %a.brands-show__feelings-list__date
-                        %span #{feeling.updated_at}
+                -if feeling.comment.present?
+                  - if user_signed_in? && @user_id == feeling.user_id
+                    %li.brands-show__feelings-list__content.content-mine
+                      .brands-show__feelings-list__content-main
+                        %a.brands-show__feelings-list__comment
+                          #{feeling.comment}
+                      .brands-show__feelings-list__content-bottom.bottom-mine
+                        %a.brands-show__feelings-list__nickname
+                          #{feeling.user.nickname}
+                        %a.brands-show__feelings-list__date
+                          %span #{feeling.updated_at}
+                  - else
+                    %li.brands-show__feelings-list__content
+                      .brands-show__feelings-list__content-main
+                        %a.brands-show__feelings-list__comment
+                          #{feeling.comment}
+                      .brands-show__feelings-list__content-bottom
+                        %a.brands-show__feelings-list__nickname
+                          #{feeling.user.nickname}
+                        %a.brands-show__feelings-list__date
+                          %span #{feeling.updated_at}
                 - else
-                  %li.brands-show__feelings-list__content
-                    .brands-show__feelings-list__content-main
-                      %a.brands-show__feelings-list__comment
-                        #{feeling.comment}
-                    .brands-show__feelings-list__content-bottom
-                      %a.brands-show__feelings-list__nickname
-                        #{feeling.user.nickname}
-                      %a.brands-show__feelings-list__date
-                        %span #{feeling.updated_at}
-          - else
-            %p.no-registration 登録されているきろくがありません
+                  %li.no-registration 登録されているきろくがありません
 
 = render 'shared/footer'
 %link{:href => "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css", :rel => "stylesheet", :type => "text/css"}/
