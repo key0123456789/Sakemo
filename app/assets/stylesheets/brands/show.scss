@@ -236,6 +236,15 @@
           color: $color-black;
           z-index: 10;
         }
+        .trash-ico {
+          z-index: 100;
+          position: absolute;
+          right: 8px;
+          bottom: 8px;
+          color: white;
+          font-size: 1.1em;
+          cursor: pointer;
+        }
       }
       &-name {
         position: absolute;
@@ -324,12 +333,12 @@
     .image {
       object-fit: cover; 
       margin: 0 auto;
+      height: 100%;
+      max-width: 355px;
+      max-height: 400px;
     }
     .no-image {
-      height: 50vh;
-      max-height: 400px;
-      width: 100%;
-      max-width: 355px;
+      object-fit: cover; 
     }
     .arrow-right {
       position: absolute;
@@ -379,7 +388,6 @@
       .brands-show__feelings-list {
         margin-bottom: 80px;
         height: auto;
-        min-height: 300px;
         max-height: 600px;
         overflow: scroll;
         border: 1px solid #aaa;
@@ -404,6 +412,12 @@
             position: absolute;
           }
         }
+        .content-mine {
+          background-color: lightgray;
+        }
+        .bottom-mine {
+          border: 1px solid lightgray;
+        }
         &__comment {
           
         }
@@ -414,7 +428,6 @@
         }
         &__date {
           font-size: 0.8em;
-          
         }
       }
     }

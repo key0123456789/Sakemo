@@ -42,7 +42,7 @@
                     = image_tag("#{brewage.image}", alt: "#{brewage.name}", class: "image")
             - else
               .slide-image
-                = image_tag "/l_e_others_501.png", class: "no_image"
+                = image_tag "/l_e_others_501.png", class: "no-image"
 
         .brands-show__content__feeling__rate
           - if current_user
@@ -76,10 +76,14 @@
             %ul.brands-show__brewages-list
               - @brand.brewages.each do |brewage|
                 %li.brands-show__brewages-list-content
-                  = link_to brand_brewage_path(brewage), class:"link brands-show__brewages-list-name" do
-                    #{@brand.name} #{brewage.name}
+                  -# = link_to brand_brewage_path(brewage), class:"link brands-show__brewages-list-name" do
+                  %a.link.brands-show__brewages-list-name #{@brand.name} #{brewage.name}
                   %a.brands-show__brewages-list-update.brands-show__brewages-list-name-hover #{@brand.name} #{brewage.name}
                   = image_tag("#{brewage.image}", class: "brands-show__brewages-list-image")
+                  - if user_signed_in? && @user_id == brewage.user_id
+                    = link_to brand_brewage_path(brewage), method: :delete do
+                      %i.fa.fa-trash.trash-ico
+
               %li.brands-show__brewages-list-content
                 .brands-show__brewages-list-content__add
                   = link_to new_brand_brewage_path(@brand), class: "brands-show__brewages-list-add" do
@@ -102,17 +106,29 @@
           - if @feelings.present?
             %ul.brands-show__feelings-list
               - @feelings.each do |feeling|
-                %li.brands-show__feelings-list__content
-                  .brands-show__feelings-list__content-main
-                    %a.brands-show__feelings-list__comment
-                      #{feeling.comment}
-                  .brands-show__feelings-list__content-bottom
-                    %a.brands-show__feelings-list__nickname
-                      #{feeling.user.nickname}
-                    %a.brands-show__feelings-list__date
-                      %span #{feeling.updated_at}
-          - else
-            %p.no-registration 登録されているきろくがありません
+                -if feeling.comment.present?
+                  - if user_signed_in? && @user_id == feeling.user_id
+                    %li.brands-show__feelings-list__content.content-mine
+                      .brands-show__feelings-list__content-main
+                        %a.brands-show__feelings-list__comment
+                          #{feeling.comment}
+                      .brands-show__feelings-list__content-bottom.bottom-mine
+                        %a.brands-show__feelings-list__nickname
+                          #{feeling.user.nickname}
+                        %a.brands-show__feelings-list__date
+                          %span #{feeling.updated_at}
+                  - else
+                    %li.brands-show__feelings-list__content
+                      .brands-show__feelings-list__content-main
+                        %a.brands-show__feelings-list__comment
+                          #{feeling.comment}
+                      .brands-show__feelings-list__content-bottom
+                        %a.brands-show__feelings-list__nickname
+                          #{feeling.user.nickname}
+                        %a.brands-show__feelings-list__date
+                          %span #{feeling.updated_at}
+                - else
+                  %li.no-registration 登録されているきろくがありません
 
 = render 'shared/footer'
 %link{:href => "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css", :rel => "stylesheet", :type => "text/css"}/
