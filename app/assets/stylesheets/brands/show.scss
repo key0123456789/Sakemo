@@ -338,10 +338,7 @@
       max-height: 400px;
     }
     .no-image {
-      height: 50vh;
-      max-height: 400px;
-      width: 100%;
-      max-width: 355px;
+      object-fit: cover; 
     }
     .arrow-right {
       position: absolute;
