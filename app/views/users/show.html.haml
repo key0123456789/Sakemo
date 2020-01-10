@@ -6,9 +6,9 @@
     %h2 #{@user.nickname} さんのマイページ
     .user-show__brands
       = link_to user_clips_path(@user) do
-        .fas.fa-bookmark 保存した銘柄: #{@user_clips}
-    -# コメント数
-    -# Like
+        .fas.fa-bookmark ブックマークした銘柄: #{@user.clips.count}
+      = link_to user_feelings_path(@user) do
+        .fas.fa-pen きろくした銘柄: #{@user.feelings.count}
     .users-show__edit
       = link_to "アカウント設定", edit_user_registration_path
     .users-show__logout

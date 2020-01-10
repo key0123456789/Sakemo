@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :users, only: :show do
     resources :clips, only: [:index]
+    resources :feelings, only: [:index]
   end
 
   resources :brands, only: [:index, :show] do
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
   end
   
   resources :clips, only: [:destroy]
-
+  
   resources :top, only: [:index] do
     collection do
       get 'search'
