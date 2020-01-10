@@ -236,6 +236,15 @@
           color: $color-black;
           z-index: 10;
         }
+        .trash-ico {
+          z-index: 100;
+          position: absolute;
+          right: 8px;
+          bottom: 8px;
+          color: white;
+          font-size: 1.1em;
+          cursor: pointer;
+        }
       }
       &-name {
         position: absolute;
@@ -324,6 +333,9 @@
     .image {
       object-fit: cover; 
       margin: 0 auto;
+      height: 100%;
+      max-width: 355px;
+      max-height: 400px;
     }
     .no-image {
       height: 50vh;
@@ -419,7 +431,6 @@
         }
         &__date {
           font-size: 0.8em;
-          
         }
       }
     }

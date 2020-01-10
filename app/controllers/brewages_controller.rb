@@ -15,7 +15,18 @@ class BrewagesController < ApplicationController
   def create
     @brand = Brand.find(params[:brand_id])
     @brewage = Brewage.create(brewage_params)
-    redirect_to brand_brewage_path(@brewage, @brand)
+    if @brewage.save
+      redirect_to brand_brewage_path(@brewage, @brand)
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    brewage = Brewage.find(params[:brand_id])
+    if brewage.destroy
+      redirect_to brand_path(brewage.brand_id)
+    end
   end
 
   private

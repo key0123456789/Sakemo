@@ -76,10 +76,14 @@
             %ul.brands-show__brewages-list
               - @brand.brewages.each do |brewage|
                 %li.brands-show__brewages-list-content
-                  = link_to brand_brewage_path(brewage), class:"link brands-show__brewages-list-name" do
-                    #{@brand.name} #{brewage.name}
+                  -# = link_to brand_brewage_path(brewage), class:"link brands-show__brewages-list-name" do
+                  %a.link.brands-show__brewages-list-name #{@brand.name} #{brewage.name}
                   %a.brands-show__brewages-list-update.brands-show__brewages-list-name-hover #{@brand.name} #{brewage.name}
                   = image_tag("#{brewage.image}", class: "brands-show__brewages-list-image")
+                  - if user_signed_in? && @user_id == brewage.user_id
+                    = link_to brand_brewage_path(brewage), method: :delete do
+                      %i.fa.fa-trash.trash-ico
+
               %li.brands-show__brewages-list-content
                 .brands-show__brewages-list-content__add
                   = link_to new_brand_brewage_path(@brand), class: "brands-show__brewages-list-add" do
@@ -102,7 +106,6 @@
           - if @feelings.present?
             %ul.brands-show__feelings-list
               - @feelings.each do |feeling|
-
                 - if user_signed_in? && @user_id == feeling.user_id
                   %li.brands-show__feelings-list__content.content-mine
                     .brands-show__feelings-list__content-main
