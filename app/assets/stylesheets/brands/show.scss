@@ -379,7 +379,6 @@
       .brands-show__feelings-list {
         margin-bottom: 80px;
         height: auto;
-        min-height: 300px;
         max-height: 600px;
         overflow: scroll;
         border: 1px solid #aaa;
@@ -403,6 +402,12 @@
             padding: 2px 16px; 
             position: absolute;
           }
+        }
+        .content-mine {
+          background-color: lightgray;
+        }
+        .bottom-mine {
+          border: 1px solid lightgray;
         }
         &__comment {
           

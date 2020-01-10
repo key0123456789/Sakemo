@@ -102,15 +102,27 @@
           - if @feelings.present?
             %ul.brands-show__feelings-list
               - @feelings.each do |feeling|
-                %li.brands-show__feelings-list__content
-                  .brands-show__feelings-list__content-main
-                    %a.brands-show__feelings-list__comment
-                      #{feeling.comment}
-                  .brands-show__feelings-list__content-bottom
-                    %a.brands-show__feelings-list__nickname
-                      #{feeling.user.nickname}
-                    %a.brands-show__feelings-list__date
-                      %span #{feeling.updated_at}
+
+                - if user_signed_in? && @user_id == feeling.user_id
+                  %li.brands-show__feelings-list__content.content-mine
+                    .brands-show__feelings-list__content-main
+                      %a.brands-show__feelings-list__comment
+                        #{feeling.comment}
+                    .brands-show__feelings-list__content-bottom.bottom-mine
+                      %a.brands-show__feelings-list__nickname
+                        #{feeling.user.nickname}
+                      %a.brands-show__feelings-list__date
+                        %span #{feeling.updated_at}
+                - else
+                  %li.brands-show__feelings-list__content
+                    .brands-show__feelings-list__content-main
+                      %a.brands-show__feelings-list__comment
+                        #{feeling.comment}
+                    .brands-show__feelings-list__content-bottom
+                      %a.brands-show__feelings-list__nickname
+                        #{feeling.user.nickname}
+                      %a.brands-show__feelings-list__date
+                        %span #{feeling.updated_at}
           - else
             %p.no-registration 登録されているきろくがありません
 
