@@ -3,7 +3,8 @@
 = render partial: 'shared/breadcrumbs'
 .container
   .brewages-new
-    .brewages-new__title
-      #{@brand.name}の種類 / 特定名称酒を追加する
-      .brewages-new__form
-        = render "form"
+    .brands-new__content.single-column
+      .brewages-new__title
+        %h2 #{@brand.name}の種類 / 特定名称酒を追加する
+        .brewages-new__form.single-column__form
+          = render "form"
