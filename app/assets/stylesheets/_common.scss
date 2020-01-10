@@ -148,6 +148,35 @@ a {
         width: 480px;
         margin-bottom: 12px;
       }
+      .form-image {
+        display: none;
+      }
+      .image-btn {
+        border: 1px solid #ddd;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 4px;
+        color: #ccc;
+        background: linear-gradient(to bottom,#fff 0,#f4f4f4 100%);
+        box-shadow: inset 0px -1px 0px 0px rgba(0, 0, 0, 0.09);
+        &-ico {
+          font-size: 12px;
+          margin: 0 10px 0 15px;
+          padding: 4px 30px;
+          border-radius: 15px;
+          background: #666;
+          color: #fff;
+          display: inline-block;
+          &.select {
+            background: $color-red;
+            color: #fff;
+          }
+        }
+      }
+      .filename {
+        display: inline-block;
+        font-size: 12px;
+      }
     }
     .actions {
       margin: 0 auto;

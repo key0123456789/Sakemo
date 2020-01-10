@@ -1,11 +1,14 @@
 .brewages-form
   = form_for [@brand, @brewage] do |f|
-    .brewages-form__image.field
+    .brewages-form__name.field
       = f.label :name, "特定名称（必須）", class: "form-title"
       = f.text_field :name, placeholder: "例）純米吟醸　しぼりたて", class:"form-text"
-    .brewages-form__name.field
+    .brewages-form__image.field
       = f.label :image, "画像", class: "form-title"
-      = f.file_field :image
+      #js-selectFile
+        = f.file_field :image, class: "form-image", id: "js-upload"
+        %button{ class: "image-btn" } ファイルを選択
+        %span{ class: "image-btn-ico" } 未選択
     .actions
       .brewages-form__submit
         = f.submit '登録する', class: "submit-btn"
