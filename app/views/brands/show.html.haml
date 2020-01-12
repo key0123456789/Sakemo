@@ -41,7 +41,7 @@
                   %li
                     = image_tag("#{brewage.image}", alt: "#{brewage.name}", class: "image")
             - else
-              .slide-image
+              %li
                 = image_tag "/l_e_others_501.png", class: "no-image"
 
         .brands-show__content__feeling__rate
@@ -51,7 +51,7 @@
             - else
               .brands-show__content__feeling__rate__note
                 .rate
-                  .rate-name 味わい
+                  .rate-name 味わい（辛口 ⇔ 甘口）
                   .rate-border{data: {number: "#{@user_feeling.flavor}"}}
                     %a.rate-border-number{data: {number: "#{@user_feeling.flavor}"}} ▼
                   .rate-name 華やかさ
@@ -101,9 +101,9 @@
                       %i.fas.fa-plus
 
       .brands-show__content__feelings
-        %h3.brands-show__feelings-title みんなのコメント
-        .brands-show__feelings-lists
-          - if @feelings.present?
+        - if @feelings.present?
+          %h3.brands-show__feelings-title みんなのコメント
+          .brands-show__feelings-lists
             %ul.brands-show__feelings-list
               - @feelings.each do |feeling|
                 -if feeling.comment.present?
@@ -127,8 +127,9 @@
                           #{feeling.user.nickname}
                         %a.brands-show__feelings-list__date
                           %span #{feeling.updated_at}
-                - else
-                  %li.no-registration 登録されているきろくがありません
+        - else
+          %h3.brands-show__feelings-title みんなのコメント
+          %p.no-registration 登録されているきろくがありません
 
 = render 'shared/footer'
 %link{:href => "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css", :rel => "stylesheet", :type => "text/css"}/

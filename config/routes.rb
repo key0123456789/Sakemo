@@ -11,9 +11,7 @@ Rails.application.routes.draw do
     get     'signup',  to: 'users/registrations#new'
   end
 
-  resources :users, only: :show do
-    resources :clips, only: [:index]
-  end
+  resources :users, only: :show
 
   resources :brands, only: [:index, :show] do
     member do
@@ -24,7 +22,7 @@ Rails.application.routes.draw do
   end
   
   resources :clips, only: [:destroy]
-
+  
   resources :top, only: [:index] do
     collection do
       get 'search'

@@ -2,16 +2,35 @@
 - breadcrumb :mypage, @user
 = render partial: 'shared/breadcrumbs'
 .container
-  .users-show.single-column
+  .users-show.two-column
     %h2 #{@user.nickname} さんのマイページ
-    .user-show__brands
-      = link_to user_clips_path(@user) do
-        .fas.fa-bookmark 保存した銘柄: #{@user_clips}
-    -# コメント数
-    -# Like
-    .users-show__edit
-      = link_to "アカウント設定", edit_user_registration_path
-    .users-show__logout
-      = link_to "ログアウト", logout_path, method: :delete
+  .users-show.two-column
+    .user-show__nav.two-column__left-side.tabs
+      -# %label.tab-item{for: "all"} マイページトップ
+      %label.tab-item{for: "feelings"} きろくした銘柄
+      %label.tab-item{for: "clips"} ブックマークした銘柄
+      %label.tab-item{for: "edit"} アカウント設定
+      %label.tab-item{for: "logout"} ログアウト
+    -# %input#all{type: "radio", name: "tab-item"}
+    %input#feelings{type: "radio", name: "tab-item", checked: "checked"}
+    %input#clips{type: "radio", name: "tab-item"}
+    %input#edit{type: "radio", name: "tab-item"}
+    %input#logout{type: "radio", name: "tab-item"}
+    .user-show__main__clips.tab-content#all-content.two-column__right-side
+      .tab-content__description
+        %h3 
+    .user-show__main__clips.tab-content#clips-content
+      .tab-content__description
+        = render partial: "clips", locals: {clip_brands: @clip_brands}
+    .user-show__main__feelings.tab-content#feelings-content
+      .tab-content__description
+        = render partial: "feelings", locals: {user_feelings: @user_feelings}
+    .user-show__main__edit.tab-content#edit-content
+      .tab-content__description
+        = render partial: "edit"
+    .user-show__main__logout.tab-content#logout-content
+      .tab-content__description
+        = link_to logout_path, method: :delete do
+          %button.submit-btn.user-show__logout ログアウト
 = render 'shared/footer'
 

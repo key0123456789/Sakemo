@@ -1,3 +1,109 @@
-.users-show {
-  // padding-top: 52px;
+.user-show {
+  &__main {
+    width: 100%;
+  }
+}
+
+// brand-lists
+.brand-lists {
+  width: 100%;
+  .brand-list {
+    position: relative;
+    width: 100%;
+    &__content {
+      margin: 8px 0;
+      &__name {
+        color: $color-black;
+        margin-top: 16px;
+        &:link, :visited {
+          color: $color-black;
+        }
+        &:hover {
+          color: $color-blue;
+          text-decoration: underline;
+        }
+      }
+      &__clip {
+        position: absolute;
+        right: 2%;
+        top: 4px;
+        color: $color-black;
+        i.fa-bookmark {
+          color: $color-red;
+        }
+        i.fa-times-circle {
+          color: gray;
+          font-size: 0.8em;
+        }
+        &:link, :visited {
+          color: $color-black;
+        }
+        &:hover {
+          color: $color-blue;
+        }
+
+      }
+      &__feeling-rate {
+        padding: 8px 8px;
+        border: 1px solid #aaa;
+        border-radius: 3px;
+        margin: 4px 0 8px;
+        font-size: 0.7em;
+        &-item {
+          padding-right: 8px;
+        }
+        .updated_at {
+          text-align: right;
+        }
+      }
+    }
+  }
+  &__page {
+    padding: 12px 0;
+    nav {
+      font-size: 0.9em;
+      text-align: center;
+      color: $color-black;
+      line-height: 30px;
+      &:link, :visited, :active {
+        color: $color-black;
+      }
+      .page {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        margin: 0 4px;
+        border-radius: 50%;
+        &:hover {
+          background-color: $color-blue;
+        }
+      }
+      .current {
+        border: 1px solid $color-red;
+        border-radius: 50%;
+      }
+      .first {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      .prev {
+        margin-left: 12px;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      .next {
+        margin-right: 12px;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      .last {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 }
