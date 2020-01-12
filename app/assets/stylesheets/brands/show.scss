@@ -338,8 +338,11 @@
     margin: 0 auto;
     .image {
       object-fit: cover; 
-
+      margin: 0 auto;
+      min-width: 200px;
       max-width: 300px;
+      min-height: 400px;
+      max-height: 400px;
     }
     .no-image {
       width: 100%;
