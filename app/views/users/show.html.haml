@@ -6,14 +6,14 @@
     %h2 #{@user.nickname} さんのマイページ
   .users-show.two-column
     .user-show__nav.two-column__left-side.tabs
-      %label.tab-item{for: "all"} マイページトップ
-      %label.tab-item{for: "clips"} ブックマーク
-      %label.tab-item{for: "feelings"} きろく
+      -# %label.tab-item{for: "all"} マイページトップ
+      %label.tab-item{for: "feelings"} きろくした銘柄
+      %label.tab-item{for: "clips"} ブックマークした銘柄
       %label.tab-item{for: "edit"} アカウント設定
       %label.tab-item{for: "logout"} ログアウト
-    %input#all{type: "radio", name: "tab-item", checked: "checked"}
+    -# %input#all{type: "radio", name: "tab-item"}
+    %input#feelings{type: "radio", name: "tab-item", checked: "checked"}
     %input#clips{type: "radio", name: "tab-item"}
-    %input#feelings{type: "radio", name: "tab-item"}
     %input#edit{type: "radio", name: "tab-item"}
     %input#logout{type: "radio", name: "tab-item"}
     .user-show__main__clips.tab-content#all-content.two-column__right-side
