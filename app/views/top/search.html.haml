@@ -23,9 +23,15 @@
               = link_to brand_path(brand) do
                 .suggest-word__content
                   .suggest-word__content__left
-                    .suggest-word__content__name #{brand.name}
-                  .suggest-word__content__right
-                    %img{height: "150", src: "/l_e_others_501.png", width: "150"}/
+                    - if brand.name_kana.present?
+                      .suggest-word__content__name #{brand.name}（#{brand.name_kana}）
+                    - else
+                      .suggest-word__content__name #{brand.name}
+                  -# .suggest-word__content__right
+                  -#   - if brand.brewages.present?
+                  -#     = image_tag("#{brand.brewages[0].image}")
+                  -#   - else
+                  -#     = image_tag("/l_e_others_501.png", height: "150", width: "150")
 
     .area-search
       %h2.area-search__title 地域で探す

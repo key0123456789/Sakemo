@@ -8,11 +8,8 @@ $(document).on('turbolinks:load', function(){
                     <div class="suggest-word__content">
                       <div class="suggest-word__content__left">
                         <div class="suggest-word__content__name">
-                          ${ brand.name }
+                          ${ brand.name }（${brand.name_kana}）
                         </div>
-                      </div>
-                      <div class="suggest-word__content__right">
-                        <img src="/l_e_others_501.png" width="150" height="150">
                       </div>
                     </div>
                   </a>
