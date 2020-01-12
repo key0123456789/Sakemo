@@ -152,6 +152,11 @@
           display: block;
           top: 0;
           right: 0;
+          img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+          }
         }
       }
     }
