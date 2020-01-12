@@ -89,14 +89,22 @@
     &-top {
       display: flex;
     }
+    &__image {
+      display: block;
+      width: 360px;
+      height: 400px;
+    }
     &__feeling {
       &__rate {
         display: block;
         width: 100%;
-        max-width: 500px;
+        max-width: 450px;
         min-width: 300px;
         padding: 48px 0 0 40px;
         float: right;
+        &:after {
+          clear: both;
+        }
         &__note {
           .rate {
             &-name {
@@ -322,22 +330,19 @@
     font-family: $font-gothic;
   }
   .slide-image {
-    height: 50vh;
     max-height: 400px;
-    width: 100%;
-    max-width: 355px;
     position: relative;
     border: 1px solid #aaa;
     overflow: hidden;
     background: #eee;
+    margin: 0 auto;
     .image {
       object-fit: cover; 
-      margin: 0 auto;
-      height: 100%;
-      max-width: 355px;
-      max-height: 400px;
+
+      max-width: 300px;
     }
     .no-image {
+      width: 100%;
       object-fit: cover; 
     }
     .arrow-right {
@@ -418,9 +423,6 @@
         .bottom-mine {
           border: 1px solid lightgray;
         }
-        &__comment {
-          
-        }
         &__nickname {
           font-size: 0.9em;
           font-weight: bold;
@@ -441,4 +443,8 @@
 }
 .slider.slick-initialized{
   opacity: 1;
+}
+.slick-list {
+  width: 300px;
+  margin: 0 auto;
 }
