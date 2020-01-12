@@ -11,9 +11,6 @@ $(document).on('turbolinks:load', function(){
                           ${ brand.name }
                         </div>
                       </div>
-                      <div class="suggest-word__content__right">
-                        <img src="/l_e_others_501.png" width="150" height="150">
-                      </div>
                     </div>
                   </a>
                 </li>`

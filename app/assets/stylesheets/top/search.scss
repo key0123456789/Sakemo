@@ -93,14 +93,14 @@
     width: 80%;
     margin: 0 auto;
     #words-search-result {
-    max-height: 50vh;
-    overflow: scroll;
-    margin-top: 10px;
-    background-color: #eee;
-    padding: 16px 20px 16px;
-    border-top: 6px $color-red solid;
-    border-bottom: 6px $color-red solid;
-    position: relative;
+      max-height: 50vh;
+      overflow: scroll;
+      margin-top: 10px;
+      background-color: #eee;
+      padding: 16px 20px 16px;
+      border-top: 6px $color-red solid;
+      border-bottom: 6px $color-red solid;
+      position: relative;
       // &:after {
       //   content: "検索結果";
       //   font-family: $font-gothic;
@@ -116,11 +116,12 @@
       font-family: $font-gothic;
     }
     .suggest-word {
-      padding: 12px 0px;
-      margin: 12px 0;
+      margin: 12px 0 0;
+      padding: 0 0 12px;
       border-bottom: 1px solid $color-red;
       position: relative;
-      min-height: 142px;
+      line-height: 26px;
+      height: 26px;
       width: 100%;
       min-width: 400px;
       &:last-child {
