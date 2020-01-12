@@ -4,13 +4,8 @@ end
 
 #  brand
 crumb :brand do |brand|
-  link "#{brand.name}", brand_path(brand)
-  # if current_page?(controller: "brands", action: "show", id: "#{params[:brand_id]}")
-  #   brand = Brand.find(params[:id])
-  # else
-  #   brand = Brand.find(params[:brand_id])
-  # end
-  # link "日本酒： #{brand.name}", brand_path(brand)
+  brand = Brand.find(params[:id])
+  link "銘柄： #{brand.name}", brand_path(brand)
 end
 
 # brewage
@@ -26,10 +21,12 @@ end
 
 crumb :feelings_new do |feeling|
   link "呑んだきろく"
+  # parent :brand
 end
 
 crumb :feelings_edit do |feeling|
   link "呑んだきろくの編集"
+  parent :brand
 end
 
 # user
