@@ -145,7 +145,8 @@ a {
         padding: 8px 8px;
         border-radius: 4px;
         border: solid 2px #ccc;
-        width: 480px;
+        width: calc(100% - 228px);
+        max-width: 480px;
         margin-bottom: 12px;
       }
       .form-image {
@@ -272,7 +273,12 @@ a {
   }
   .tab-content {
     display: none;
-    width: calc(100%- 240px);
+    width: calc(100% - 16px);
+    margin-left: 16px;
+    margin-bottom: 40px;
+    &__description {
+      box-sizing: border-box;
+    }
   }
   input[name="tab-item"] {
     display: none;
