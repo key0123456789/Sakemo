@@ -1,0 +1,24 @@
+.two-column__right-content.clips-index
+  %h3 ブックマークした銘柄
+  .clips-index__wrapper
+    %ul.clips-index__lists.brand-lists
+      - if clip_brands.present?
+        - clip_brands.each do |brand|
+          %li.clips-index__list.brand-list
+            = link_to brand_path(brand), target: "blank" do
+              .clips-index__list__content.brand-list__content
+                - if brand.name_kana.present?
+                  %h4 #{brand.name}（#{brand.name_kana}）
+                - else
+                  %h4 #{brand.name}
+            .clips-index__list__clip.brand-list__content__clip
+              - if !Clip.exists?(user_id: current_user.id , brand_id: brand.id)
+                = link_to add_brand_path(brand.id), method: :post do
+                  %i.far.fa-bookmark
+              - else
+                = link_to clip_path(brand.id), method: :delete do
+                  %i.fas.fa-bookmark
+        .clips-index__lists__page.brand-lists__page
+          = paginate clip_brands
+      - else
+        %li ブックマークした銘柄はありません

@@ -1,0 +1,24 @@
+.two-column__right-content.feelings-index
+  %h3 きろくした銘柄
+  .feelings-index__wrapper
+  %ul.feelings-index__lists.brand-lists
+    - if user_feelings.present?
+      - user_feelings.each do |feeling|
+        %li.feelings-index__list.brand-list
+          = link_to brand_path(feeling.brand_id), target: "blank" do
+            .feelings-index__list__content.brand-list__content
+              - if feeling.brand.name_kana.present?
+                %h4 #{feeling.brand.name}（#{feeling.brand.name_kana}）
+              - else
+                %h4 #{feeling.brand.name}
+          .feelings-index__list__clip.brand-list__content__clip
+            - if !Clip.exists?(user_id: current_user.id , brand_id: feeling.brand_id)
+              = link_to add_brand_path(feeling.brand_id), method: :post do
+                %i.far.fa-bookmark
+            - else
+              = link_to clip_path(feeling.brand_id), method: :delete do
+                %i.fas.fa-bookmark
+      .feelings-index__lists__page.brand-lists__page
+        = paginate @feeling_pages
+    - else
+      %li きろくした銘柄はありません

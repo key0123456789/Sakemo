@@ -1,0 +1,17 @@
+.single-column__form
+  %h3 アカウント設定
+  = form_for(@user, url: user_registration_path, html: { method: :put }) do |f|
+    .field
+      = f.label :email, "メールアドレスの編集", class: "form-title"
+      = f.email_field :email, autofocus: true, autocomplete: "email", class:"form-text"
+    .field
+      = f.label :password, "変更後のパスワード（6文字以上）", class: "form-title"
+      %small パスワードを変更する場合は以下を入力してください。
+      = f.password_field :password, autocomplete: "new-password", class:"form-text"
+    .field
+      = f.password_field :password_confirmation, autocomplete: "new-password", class:"form-text", placeholder: "確認用"
+    .field
+      = f.label :current_password, "現在のパスワード", class: "form-title"
+      = f.password_field :current_password, autocomplete: "current-password", class:"form-text"
+    .actions
+      = f.submit "更新する", class: "submit-btn"
