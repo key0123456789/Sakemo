@@ -8,7 +8,7 @@ $(document).on('turbolinks:load', function(){
                     <div class="suggest-word__content">
                       <div class="suggest-word__content__left">
                         <div class="suggest-word__content__name">
-                          ${ brand.name }
+                          ${ brand.name }（${brand.name_kana}）
                         </div>
                       </div>
                     </div>
