@@ -16,7 +16,7 @@ class BrewagesController < ApplicationController
     @brand = Brand.find(params[:brand_id])
     @brewage = Brewage.create(brewage_params)
     if @brewage.save
-      redirect_to brand_brewage_path(@brewage, @brand)
+      redirect_to brand_path(@brand)
     else
       render :new
     end
