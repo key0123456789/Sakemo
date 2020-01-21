@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'rails-i18n', '~> 5.1'
 gem 'font-awesome-sass', '~> 5.4.1'
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -41,6 +42,9 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -71,5 +75,3 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'gretel'
 gem 'kaminari'
-gem 'jquery-rails'
-
