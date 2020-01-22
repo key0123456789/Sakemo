@@ -3,6 +3,16 @@ require 'rails_helper'
 describe Feeling do
   describe '#create' do
 
+    it "is valid feeling" do
+      feeling = build(:feeling)
+      expect(feeling).to be_valid
+    end
+
+    it "is valid feeling without a comment" do
+      feeling = build(:feeling, comment: "")
+      expect(feeling).to be_valid
+    end
+
     it "is invalid without flavor" do
       feeling = build(:feeling, flavor: "")
       feeling.valid?
@@ -26,7 +36,7 @@ describe Feeling do
       feeling.valid?
       expect(feeling.errors[:sharp])
     end
-    
+
     it "is invalid without favorite" do
       feeling = build(:feeling, favorite: "")
       feeling.valid?
