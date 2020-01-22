@@ -8,7 +8,7 @@ FactoryBot.define do
     aroma { 1 }
     body { 1 }
     sharp { 1 }
-    favolite { 1 }
+    favorite { 1 }
   end
 
 end
